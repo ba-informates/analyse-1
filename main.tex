@@ -1,7 +1,15 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
-
+\graphicspath{{Images/}}
+\usepackage[utf8]{inputenc}
 \usepackage{multicol}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}{Remarque}[section]
+\newtheorem{theorem}{Théorème}
 
 \title{Analyse I}
 \author{Laura Paraboschi / Simon Lefort }
@@ -12,20 +20,137 @@
 \maketitle
 
 \section{Règles de calcul}
-\subsection{Puissance}
+
+\begin{multicols}{2}
+\subsection{Puissance}  
+\columnbreak
+\subsection{Logarithme}
+\end{multicols}
+
 \begin{multicols}{2}
 
 \begin{itemize}
-    \item \[a^n \cdot a^m = a^{m+n}\]
-    \item \[a^n \cdot a^m = a^{m+n}\]
+    \item \( a^n \cdot a^m = a^{m+n} \)
+    \item \( (ab)^m = a^mb^m \)
+    \item \( (\frac{a}{b})^m = (\frac{a^m}{b^m}) \)
+    \item \( \frac{a^m}{a^n} = a^{m-n} \)
 \end{itemize}
-
 \columnbreak
 
 \begin{itemize}
-    \item test
+    \item \( \log_a(x \cdot y) = \log_a(x) + \log_a(y) \)
+    \item \( \log_a(\frac{1}{x}) = -\log_a(x) \)
+    \item \( \log_a(\frac{x}{y}) = \log_a(x) - \log_a(y) \)
+    \item \( \log_a(x^r) = r\log_a(x) \)
 \end{itemize}
 
 \end{multicols}
 
+\section{Ensemble}
+\begin{definition}
+P(X) est l'ensemble dont les éléments sont tous les sous-ensembles de X. Sa capacité est de  \(2^n\), avec n = nombres d'élements dans X
+\end{definition}
+\subsection{Produit cartésien}
+\[ X \times Y \times Z := \{\,(x,y,z)\quad |\quad x \in X,\,y \in Y,\, z \in Z\, \} \]
+\begin{definition}
+    Un sous ensemble \(R \subset X \times Y\) est appelé \underline{une relation binaire} sur X et Y
+\end{definition}
+\begin{definition}
+    Un sous ensemble \(R \subset X \times X\) est appelé \underline{une relation} sur X
+\end{definition}
+
+\subsection{Classe d'équivalence}
+\begin{definition}
+    Un sous ensemble \(R \subset X \times X\) est appelé \underline{une relation d'équivalence} sur X si :
+    \begin{enumerate}
+        \item \( \forall x \in X,\quad x \sim x \) (R est réfléctive)
+        \item \( \forall x,\,y \in X,\quad  x \sim y \Rightarrow y \sim x \) (R est symétrique)
+        \item \( \forall x,\,y,\, z \in X,\quad x \sim y\, \wedge\, y \sim z \Rightarrow x \sim z \) (R est transitive)
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    On définit \(C_x \subset X \) par \\ \[ C_x := \{\, y \in X\quad |\quad y \sim x\, \} \] \\
+    \(C_x\) est appelé la classe d'équivalence de x
+\end{definition}
+\begin{definition}
+    L'ensemble quotient \(X/_\sim \) est l'ensemble des classes d'équivalences distinctes de X
+\end{definition}
+\subsection{Fonction}
+\begin{definition}
+    Une fonction f : \(D \rightarrow Y\) est appelée 
+    \begin{itemize}
+        \item \underline{surjective} si Im(f) = Y
+        \item \underline{injective} si \( f(x_1) = f(x_2) \Rightarrow x_1 = x_2 \)
+    \end{itemize}
+\end{definition}
+\begin{remark}
+    \( (A \Rightarrow B) \Leftrightarrow (\overline{A} \Rightarrow \overline{B}) \) \quad Une proposition contraposée
+\end{remark}
+\begin{remark}
+    Toute fonction f : \(D \rightarrow Y\) définit une fonction surjective\\ \[f : D \rightarrow Im(f) \subset Y\]
+\end{remark}
+\begin{definition}
+    Une fonction qui est surjective et injective est appelée bijective
+\end{definition}
+\begin{remark}
+    Toute fonction bijective \(D \rightarrow Y\) possède une fonction réciproque notée \( f^{-1}, Y \rightarrow D\)
+\end{remark}
+Soient deux fonctions f :\(D \rightarrow Y\) et g : \(E \rightarrow Y\) avec \(E \subset D\), telle que pour tout \(x \in E, g(x) = f(x)\). Alors :
+\begin{itemize}
+    \item g est appelée la restriction de f à E : \(g = f|_E\)
+    \item f est appelée un prolongement de g de E à D
+\end{itemize}
+\begin{definition}
+    Le graphe d'une fonction f : \(D \rightarrow Y\) est l'ensemble
+    \[ G_f := \{\, (x,y) \in D \times Y\quad |\quad y = f(x)\, \} \]
+    \qquad Attention, pour tout f(x) il ne doit exister \textcolor{red}{qu'une seule} préimage
+\end{definition}
+\begin{definition}
+    On définit \(h = g \circ f\) comme étant la composition de fonction 
+    \[h = g(f(x))\]
+    \qquad La loi de la composition de fonction est associative
+\end{definition}
+\newpage
+\section{Plus grand commun diviseur}
+\subsection{Algorithme de J. Stein}
+\begin{itemize}
+    \item pgcd(a,b) = pgcd(b,a)
+    \item pgcd(a,b) = 2\(\cdot\) pgcd(\(\frac{a}{2},\frac{b}{2})\) \qquad si a, b pairs
+    \item pgcd(a,b) = pgcd(\(\frac{a}{2}\),b) \qquad si a pair, b impair
+    \item  pgcd(a,b) = pgcd(\(\frac{a-b}{2}\), b)  \qquad si a, b impairs et a \(\geq \) b
+    \item pgcd(a,0) = a
+\end{itemize}
+\section{Raisonnement par récurrence}
+\begin{theorem} 
+\end{theorem}
+\begin{enumerate} 
+    \item Si P(\(n_0)\) est vrai pour un \(n_0 \in \mathbf{N}\)
+    \item Si pour tout n \(\geq n_0\), P(n) \(\Rightarrow\) P(n+1)
+\end{enumerate}
+\qquad \textit{Alors P(n) est vrai pour tout n \(\geq n_0\)}
+\section{Les notations \(\Sigma\) et \(\Pi\)}
+\(\sum_{k=m}^n a_k := a_m + a_{m+1} + ... + a_{n-1} + a_n \) \\\\
+\( \prod_{k=m}^{m} a_k := a_m \cdot a_{m+1} \cdot ... \cdot a_{n-1} \cdot a_n\)\\\\
+\( Si\ n < m \qquad \sum_{k=m}^{n} a_k := 0,\qquad \prod_{k=m}^{n} a_k = 1 \)
+\subsection{Règles de calcul}
+\( \sum_{k=l}^{m} a_k + \sum_{k=m+1}^{n} a_k = \sum_{k=l}^{n} a_k \)\\\\
+\( (\prod_{k=l}^{m} a_k)\cdot(\prod_{k=m+1}^{n} a_k) =\prod_{k=l}^{n} a_k \)\\\\
+\( \sum_{k=m}^{n}(a_k + b_k) = \sum_{k=m}^{n} a_k + \sum_{k=m}^{n} b_k \)\\\\
+\( \prod_{k=m}^{n}(a_k \cdot b_k) = (\prod_{k=m}^{n} a_k) \cdot (\prod_{k=m}^{n} b_k)\)
+\subsection{Identité}
+\(\sum_{k=0}^{n} a^k = \frac{1-a^{n+1}}{1-a}, \qquad a \neq 1\)\\\\
+\( \sum_{k=0}^{n} k = \frac{n\cdot(n+1)}{2} \)\\\\
+\( (a + b)^2 = a^2 + 2ab + b^2  \)\\\\
+\( (a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3 \)\\\\
+\( (a + b)^n = \sum_{k=0}^{n} 
+\begin{pmatrix}
+    n \\ k
+\end{pmatrix} a^{n-k}\cdot b^k = a^n + na^{n-1}b + ... + b^n \)\\\\
+On peut tout déduire du triangle de Pascal :
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=8cm]{Images/Pascal-Triangle.png}
+    \caption{Triangle de Pascal}
+\end{figure}
 \end{document}
+
