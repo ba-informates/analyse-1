@@ -152,5 +152,57 @@ On peut tout déduire du triangle de Pascal :
     \includegraphics[width=8cm]{Images/Pascal-Triangle.png}
     \caption{Triangle de Pascal}
 \end{figure}
+\section{Nombres réels}
+\begin{definition}
+    Un corps a les propriétés suivantes :
+    \begin{multicols}{2}
+        
+    
+    \begin{itemize}
+        \item x + (y + z) = (x + y) + z
+        \item x + y = y + x
+        \item 0 + x = x
+        \item (-x) + x = 0 
+        \columnbreak
+        \item \( x \cdot (y \cdot z) =  (x \cdot y) \cdot z\)
+        \item \( x \cdot y = y \cdot x\) 
+        \item  \(1 \cdot x = x \)
+        \item \( x^{-1} \cdot x = 1\)
+        \item \(x \cdot (y + z) = x \cdot y + x \cdot z\)
+    \end{itemize}
+    \end{multicols}
+    Un corps \underline{ordonné} est en plus compatible avec \( \leq \) 
+\end{definition}
+\begin{definition}
+    Un corps archimédien a la propriété suivante :\\
+    Pour tout x, y \(\in\) au corps, x \(>\) 0, y \(\geq\) 0 il existe n \(\in N^*\) tel que nx \(>\) y
+\end{definition}
+Les démonstrations peuvent être faites de plusieurs manières différentes :
+\begin{itemize}
+    \item Raisonnement déductif : Si A est vrai et A \(\implies\) B, alors B est vrai
+    \item Raisonnement par l'absurde : Si B est vrai et A \(\implies \overline{B}\), alors \(\overline{A}\) est vrai
+\end{itemize}
+\subsection{Infimum et Supremum}
+\underline{minimum} : plus petite valeur de A \\
+\underline{maximum} : plus grande valeur de A \\
+\underline{minorant} : a \(\leq\) x, a appartenant à R, x appartenant à A \\ infimum (ou borne inférieure) si a est le plus grand minorant \\\\
+\underline{majorant} : x \(\leq\) a, a appartenant à R, x appartenant à A  \\ suprémum (ou borne supérieure) si a est le plus petit majorant\\\\
+\underline{minoré} : A admet un minorant \\
+\underline{majoré} : A admet un majorant \\
+\underline{borné} : A admet un minorant et un majorant
+\begin{remark}
+    Un majorant/minorant peut être un maximum/minimum s'il appartient à A
+\end{remark}
+\subsection{Valeur absolue}
+Inégalités triangulaires :
+\begin{itemize}
+    \item \( |x \pm y| \leq |x| + |y| \)
+    \item \( |x \pm y| \geq ||x| - |y|| \)
+\end{itemize}
+Identités :
+\begin{itemize}
+    \item \( |x +\ y| + |x -\ y| =  |x| + |y| + ||x| - |y|| = 2 \cdot max\{|x|, |y|\}\)
+    \item \( ||x +\ y| - |x -\ y|| =  |x| + |y| - ||x| - |y|| = 2 \cdot min\{|x|, |y|\}\)
+\end{itemize}
 \end{document}
 
