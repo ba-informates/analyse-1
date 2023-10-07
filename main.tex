@@ -154,7 +154,10 @@ On peut tout déduire du triangle de Pascal :
 \end{figure}
 \section{Nombres réels}
 \begin{definition}
-    Un corps a les propriétés suivantes :
+Un corps est un ensemble muni des opérations + et $ \cdot $, rendant possible le calcul d'opposés et d'inverses
+\end{definition}
+\begin{definition}
+    R est un corps qui a les propriétés suivantes :
     \begin{multicols}{2}
         
     
@@ -204,5 +207,95 @@ Identités :
     \item \( |x +\ y| + |x -\ y| =  |x| + |y| + ||x| - |y|| = 2 \cdot max\{|x|, |y|\}\)
     \item \( ||x +\ y| - |x -\ y|| =  |x| + |y| - ||x| - |y|| = 2 \cdot min\{|x|, |y|\}\)
 \end{itemize}
-\end{document}
+\section{Nombres complexes}
+\begin{definition}
+   \( \mathbf{C} = (X, +, \cdot) \qquad X = \mathbf{R} \times \mathbf{R} \)\\\\
+   \( + : (a, b) + (c, d) = (a + c,\ b + d)\) \\\\
+   \( \cdot : (a, b) \cdot (c, d) = (ac - bd,\ ad + bc) \)
+\end{definition} \newpage
+\subsection{Représentation cartésienne}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=12cm]{Images/complexe2.jpeg}
+    \caption{Représentation des nombres complexes}
+    \label{fig:complex}
+\end{figure} 
+\underline{Notations :} 
+\begin{itemize}
+    \item i = (0,1) et \(i^2\)= -1 (-1, 0), c'est l'unité imaginaire 
+    \item z = a + ib, \qquad \qquad \qquad \qquad avec a = Re(z) = \( \frac{z + \overline{z}}{2}\) et b = Im(z) = \( \frac{z - \overline{z}}{2}\)
+\end{itemize}
+\subsection{Définitions additionelles}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[height=4cm]{Images/conjugue.png}
+    \label{fig:conjugue}
+\end{figure}
+Le \underline{complexe conjugué} de z : \( \overline{z} = a - ib\) \\
+\begin{itemize}
+    \item \( \overline{\overline{z}} = z \)
+    \item \( \overline{z_1 + z_2} = \overline{z}_1+ \overline{z}_2 \)
+    \item \( \overline{z_1 \cdot z_2} = \overline{z}_1 \cdot \overline{z}_2 \)
+\end{itemize} \newpage
+Le \underline{module} de z : \(|z| = (z\cdot\overline{z})^{\frac{1}{2}} = \sqrt{z\cdot\overline{z}} = \sqrt{a^2 + b^2} = |\overline{z}|\)
+\begin{itemize}
+    \item \( |z_1 \cdot z_2| = |z_1|\cdot|z_2| \)
+\end{itemize}
+L'\underline{élément inverse} de z : \(\frac{1}{z} = \frac{1}{|z|^2}\cdot\overline{z}\)
+\begin{itemize}
+    \item \(Re(\frac{1}{z}) = \frac{a}{a^2 + b^2}, \ Im(\frac{1}{z}) = \frac{-b}{a^2 + b^2} \)
+    \item \( \frac{z_1}{z_2} = z_1 \cdot \frac{1}{z_2} \)
+\end{itemize}
+\underline{Formule d'Euler}
+\[ e^{i\phi} = \cos{\phi} + i\sin{\phi} \]
+\[ e^{z_1} \cdot e^{z_2} = e^{z_1 + z_2} \]
+\[ \overline{e^z} = e^{\overline{z}} \]
+\[ (e^z)^n = e^{n\cdot z} \]
+\underline{Formule de Moivre}
+\[ \cos{n\phi} + i\sin{n\phi} = (\cos{\phi} + i\sin{\phi})^n \]
+\begin{itemize}
+    \item \( \cos{\phi} = \frac{e^{i\phi} + e^{-i\phi}}{2} \Rightarrow \cos{z} = \frac{e^{iz} + e^{-iz}}{2} \)
+    \item \( \sin{\phi} = \frac{e^{i\phi} - e^{-i\phi}}{2} \Rightarrow \sin{z} = \frac{e^{iz} - e^{-iz}}{2} \)
+\end{itemize}
+\underline{Forme polaire} : z = \( |z|\cdot e^{i\phi} \) \qquad \qquad \qquad \( \phi \in ]-\pi, \pi]\)
+\begin{itemize}
+    \item arg(z) = \(\phi\) = 2 \( \arctan{\frac{b}{a + |z|}} \) ou \( \arctan{\frac{b}{a}}\) si a $>$ 0 (ou vérifier le cadran)
+    \item \( z_1z_2 = |z_1||z_2|e^{i(\phi_1 + \phi_2)} \)
+    \item \( \frac{1}{z} = \frac{1}{r}e^{-i\phi} \)
+\end{itemize}
+\subsection{Résolution d'équations}
+\underline{Racines n-ièmes :}
+\[ z^n = w\]
+Méthode polaire :
+\begin{enumerate}
+    \item \( w = |w|e^{i(\phi + 2k\pi)} \) \qquad \qquad \qquad k = 0, ..., n-1
+    \item \( z_{k+1} = |w|^{\frac{1}{n}}e^{i(\frac{\phi}{n} + 2\frac{k}{n}\pi)} \) \qquad \qquad \qquad k = 0, ..., n-1
+\end{enumerate}
+Méthode cartésienne :
+\[ z^n = a + ib \]
+On cherche Re(z) = Re(w) \underline{et} Im(z) = Im(w) \\
+\textcolor{red}{Attention aux solutions éventuelles qui pourraient apparaître et ne sont pas solutions de l'équation de base}
+\newpage
+\underline{Théorème fondamental de l'algèbre :} \\\\
+Tout polynôme p(z) = \( a_nz^n+...+a_1z +a_0 \) admet dans les complexes n racines, on peut donc l'écrire :
+\[ p(z) = a_n(z - z_1)(z - z_2)...(z - z_n)\]
+\begin{remark}
+    Si \(p(z_k) = 0\) alors \(p(\overline{z_k}) = 0\) donc les racines sont soit des nombres réels soit des paires de nombres complexes conjugués
+\end{remark}
+\(\Rightarrow\) Tout polynôme à coefficients réels peut être factorisé dans R en facteurs linéaires et quadratiques
+\begin{remark}
+    \( z^2 - az + b = z^2 - 2Re(z_k)z + |z_k|^2 = (z - z_k)(z - \overline{z_k})\)
+\end{remark}
+\underline{Formule de Viète}
+\[ z_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2a} \quad avec \quad \Delta = b^2 - 4ac \geq 0\]
+\[ z_{1,2} = \frac{-b \pm i\sqrt{-\Delta}}{2a} \quad avec \quad \Delta = b^2 - 4ac < 0\]
 
+\begin{remark}
+Simplification des exposants de i
+    \[ i^{4k} = 1 \]
+    \[ i^{4k+1} = i \]
+    \[ i^{4k+2} = -1 \] 
+    \[ i^{4k+3} = -i \]
+\end{remark}
+
+\end{document}
