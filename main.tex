@@ -266,6 +266,13 @@ L'\underline{élément inverse} de z : \(\frac{1}{z} = \frac{1}{|z|^2}\cdot\over
 \subsection{Résolution d'équations}
 \underline{Racines n-ièmes :}
 \[ z^n = w\]
+\[ \Leftrightarrow {(re^{i\theta})}^n = w\]
+\[ \Leftrightarrow r^n \cdot e^{in\theta} = w\]
+\[ \Leftrightarrow p \cdot e^{i(\lambda + 2k\pi)} = w\]
+
+On en déduit :
+\[ r^n = p \]
+\[ n\theta = \lambda + 2k\pi, k \in \mathbf{Z} \]
 Méthode polaire :
 \begin{enumerate}
     \item \( w = |w|e^{i(\phi + 2k\pi)} \) \qquad \qquad \qquad k = 0, ..., n-1
@@ -275,12 +282,12 @@ Méthode cartésienne :
 \[ z^n = a + ib \]
 On cherche Re(z) = Re(w) \underline{et} Im(z) = Im(w) \\
 \textcolor{red}{Attention aux solutions éventuelles qui pourraient apparaître et ne sont pas solutions de l'équation de base}
-\newpage
+\\\\
 \underline{Théorème fondamental de l'algèbre :} \\\\
 Tout polynôme p(z) = \( a_nz^n+...+a_1z +a_0 \) admet dans les complexes n racines, on peut donc l'écrire :
 \[ p(z) = a_n(z - z_1)(z - z_2)...(z - z_n)\]
 \begin{remark}
-    Si \(p(z_k) = 0\) alors \(p(\overline{z_k}) = 0\) donc les racines sont soit des nombres réels soit des paires de nombres complexes conjugués
+    Si \(p(z_k) = 0\) alors \(p(\overline{z_k}) = 0\) donc les racines sont soit des nombres réels soit des paires de nombres complexes conjugués \textcolor{red}{Attention, seulement pour des coefficients réels !}
 \end{remark}
 \(\Rightarrow\) Tout polynôme à coefficients réels peut être factorisé dans R en facteurs linéaires et quadratiques
 \begin{remark}
@@ -303,5 +310,239 @@ Propriétés importantes des logarithmes
     \[ e^{ln(a^{b}}) = a^{b} \]
     \[ \Rightarrow e^{bln(a)} = a^{b} \]
 \end{remark}
+
+\section{Suites de nombres réels}
+
+\begin{definition}
+Une suite est une fonction qui associe un entier naturel à un réel. \\
+    $ f : \mathbf{N} \rightarrow \mathbf{R} $ \\
+    $ f : n \rightarrow f(n) = a_n $
+\end{definition}
+
+\subsection{Limite de suite}
+
+La suite $ a_n $ est convergente s'il existe un $ a \in \mathbf{R} $ tel que : \\
+\[ \forall \epsilon > 0,\ \exists n_0 \in \mathbf{N},\ \forall n > n_0,\ |a_n - a| < \epsilon \]\\
+divergente $ \Leftrightarrow $ non-convergente\\
+oscille $ \implies $ divergente \\
+Toute suite convergente est bornée!
+\subsubsection{Unicité de la limite}
+Voir théoremes
+
+\subsubsection{Définition de inf et sup}
+
+\textbf{inf(A)}\\
+\[ \forall \epsilon > 0,\ \exists n_0 \in \mathbf{N}\ \text{t. q.}\ a_{n_0} < inf(A) + \epsilon \]
+\textbf{sup(A)}\\
+\[ \forall \epsilon > 0,\ \exists n_0 \in \mathbf{N}\ \text{t. q.}\ a_{n_0} > sup(A) - \epsilon \]
+Remarque, si supA appartient à la suite alors c'est le max de la suite, min pour le inf.
+
+\subsection{Operations algébriques sur les limites}
+\underline{Si lim(an) = a et lim(bn) = b, alors}\\
+\begin{itemize}
+    \item lim($\alpha a_n + \beta b_n$) = $\alpha lim(a_n) + \beta lim(b_n)$
+    \item lim($a_n \cdot b_n)$ = lim($a_n$) $\cdot$ lim($b_n)$
+    \item lim($\frac{a_n}{b_n}$) = $\frac{lima_n}{limb_n}$ = $\frac{a}{b}$ si b $\neq$ 0
+\end{itemize}
+\subsubsection{Théorème des gendarmes}
+
+\textbf{Hypothèses} \\
+\[ \lim_{n\to\infty}a_n = \lim_{n\to\infty}b_n = c \]
+\[ a_n < C_n < b_n\ \forall n \geq m \]
+\textbf{Alors} \\
+
+\[ \forall \epsilon > 0,\ \exists n_0 \geq m\ \text{t.q.}\ \forall n \geq n_0\ \text{:} \]
+\[ \lvert a_n - c \lvert < \epsilon \]
+\[ \lvert b_n - c \lvert < \epsilon \] \\\\
+Notes :\\\\
+voir Theorems
+\subsection{Convergence d'une suite définie par récurrence}
+Montrée que la suite est minoréee + décroissamte ou majorée + croissante
+(1. Calculer lim, 2. minorée/majorée, 3. croissante/décroissante)
+
+\subsubsection{Théorème de d'Alembert}
+
+Soit $ q = \lim_{n\to\infty}\ \lvert \frac{a_{n+1}}{a_n} \lvert $.\\
+\begin{itemize}
+    \item Si $ 0 \leq q < 1 $, la suite $ a_n $ converge vers 0.
+    \item Si $ q = 1 $, on ne sait pas.
+    \item Si $ q > 1 $, la suite $ a_n $ diverge.
+\end{itemize}
+
+\subsubsection{Suites de Cauchy}
+
+Une suite est appelée suite de Cauchy si :\\
+\[ \forall \epsilon > 0,\ \exists N\ \in \mathbf{N},\ \forall n,\ m \geq N,\ |a_n - a_m| < \epsilon \]
+
+Dans R toutes les suites de Cauchy sont convergentes mais pas dans les espaces non complets (ex. Q). "ça converge vers quelque chose qui n'existe pas", donc $ \neg\exists{a} $, avec $ a $ la limite.
+
+\subsubsection{Sous-suites}
+On a une fonction g qui fait un remapping des index en en supprimant certains par ex., mais en gardant un ordre croissant.
+
+\[ f : \mathbf{N} \rightarrow \mathbf{R}\ \mathrm{(suite\ a_n)} \]
+\[ g : \mathbf{N} \rightarrow \mathbf{N}\ \mathrm{(strictement\ croissante)} \]
+\[ \mathrm{composition :\\} \mathbf{N} \xrightarrow{g} \mathbf{N} \xrightarrow{f} \mathbf{R} \]
+
+\paragraph{Convergence des suites définies par récurrence}
+$ \newline \newline $
+Si une suite $ a_n = g(a_{n-1} $ avec $ g(x) = q \cdot x + b $, alors :\\\\
+Soit $ a = \frac{b}{1 - q}$
+\begin{itemize}
+    \item Si $ |q| < 1 $, la suite converge vers $ a $.
+\end{itemize}
+
+\section{Séries numériques}
+
+Soit $ a_n $ la suite des termes d'une série.
+
+\subsection{Critères de comparaison}
+
+\subsubsection{Critère de d'Alembert}
+
+On pose $ q = \lim_{n\to\infty}\ \lvert \frac{a_{n+1}}{a_n} \lvert $.\\\\
+Si $ 0 \leq q < 1 $, alors la série converge.\\
+Si $ q = 1 $, on ne sait pas.\\
+Si $ q > 1 $, la série diverge.
+
+\subsubsection{Critère de Cauchy}
+
+On pose $ q = \lim_{n\to\infty}\ {\lvert a_{n}\lvert}^{1/n} $.\\\\
+Si $ 0 \leq q < 1 $, alors la série converge.\\
+Si $ q = 1 $, on ne sait pas.\\
+Si $ q > 1 $, la série diverge.
+
+\subsubsection{Critère du limsup}
+
+On pose $ q = \limsup_{n\to\infty}\ {\lvert a_{n}\lvert}^{1/n} $.\\\\
+Si $ 0 \leq q < 1 $, alors la série converge.\\
+Si $ q = 1 $, on ne sait pas.\\
+Si $ q > 1 $, la série diverge.
+
+\subsubsection{Convergence des séries alternées}
+
+Les séries alternées associées $ \sum_{k=1}^{\infty} (-1)^k \cdot a_k $ convergent si :
+\begin{itemize}
+    \item $ a_n $ est positive.
+    \item La suite $ a_n $ est décroissante.
+    \item $ \lim_{n\to\infty} a_n = 0 $
+\end{itemize}
+
+\subsubsection{Critère de comparaison 1}
+
+\begin{itemize}
+    \item $ \forall\ k,\ 0 \leq \lvert a_k \lvert\ \leq b_k $
+    \item $ \sum_{k=1}^{\infty} b_k $ converge
+\end{itemize}
+
+$ \implies \sum_{k=1}^{\infty} a_k $ converge absolument.
+
+\subsubsection{Critère de comparaison 2}
+
+\begin{remark}
+    Généralement on essaye de minorer la suite par la suite harmonique, dont la série diverge.
+\end{remark}
+
+\begin{itemize}
+    \item $ \forall\ k,\ 0 \leq b_k \leq a_k $
+    \item $ \sum_{k=1}^{\infty} b_k $ diverge
+\end{itemize}
+
+$ \implies \sum_{k=1}^{\infty} a_k $ diverge.
+
+\section{Fonctions réelles}
+
+\begin{theorem}
+    Une fonction strictement monotone est injective.
+\end{theorem}
+
+\begin{definition}
+    Un ensemble $ X \subseteq R $ est symmétrique si $ \forall x, (x \in X \implies -x \in X) $.
+\end{definition}
+
+\begin{definition}
+    Une fonction est paire si son ensemble de définition est symmétrique \textbf{et} $ \forall x \in D, (f(x) = f(-x)).$
+\end{definition}
+
+\subsection{Fonctions paires et impaires}
+
+\begin{definition}
+    Une fonction est impaire si son ensemble de définition est symmétrique \textbf{et} $ \forall x \in D, (f(x) = -f(-x)).$
+\end{definition}
+
+\begin{definition}
+    Une fonction est périodique de période $ T > 0 $ si $ \forall x \in D, (f(x+T) = f(x)) $. Le plus petit $ T $ qui satisfait la définition est appelé la période de f. Remarque: implique $ \forall x \in D, \forall n \in \mathbf{Z}, x + nT \in D$. 
+\end{definition}
+
+Toute fonction dont le domaine de définition est symmétrique peut être décomposée en une somme d'une fonction paire et d'une fonction impaire.
+
+\[ f(x) = f(x) + \frac{1}{2} f(-x) - \frac{1}{2} f(-x) \]
+\[ \Leftrightarrow f(x) = \frac{1}{2}(f(x) + f(-x)) + \frac{1}{2}(f(x) - f(-x)) \]
+\[ \Leftrightarrow f(x) = f_{+}(x) + f_{-}(x) \]
+
+\subsubsection{cosh et sinh}
+
+\[ cosh(x) = \frac{e^x + e^{-x}}{2} \hspace{0.3cm} \text{(paire)} \]
+\[ sinh(x) = \frac{e^x - e^{-x}}{2} \hspace{0.3cm} \text{(impaire)}\]
+
+\[ f(x) = e^x = cosh(x) + sinh(x) \]
+
+\subsubsection{Identités}
+
+Soit $ p_1, p_2 $ des fonctions paires.\\
+Soit $ i_1, i_2 $ des fonctions impaires.
+
+\begin{itemize}
+    \item $ p_1 + p_2 $ est \textbf{paire}
+    \item $ p_1 \cdot p_2 $ est \textbf{paire}
+    \item $ i_1 + i_2 $ est \textbf{impaire}
+    \item $ i_1 \cdot i_2 $ est \textbf{paire}
+    \item $ p_1 \cdot i_1 $ est \textbf{impaire}
+    \item $ p_1 \circ i_1 $ est \textbf{paire}
+    \item $ f \circ p_1 $ est \textbf{paire}
+    \item $ i_1 \circ i_2 $ est \textbf{impaire}
+\end{itemize}
+Soient f et g des fonctions périodiques de période $ T_f $ et $ T_g $.\\\\
+On a $ h\circ f$, $ T_f $-périodique (mais ce n'est pas la période (le plus petit T)!).\\\\
+De plus, $ \frac{T_f}{T_g} \in \mathbf{Q} \implies $
+
+\begin{itemize}
+    \item $ f + g $ est périodique
+    \item $ f \cdot g $ est périodique
+\end{itemize}
+
+\subsection{Fonctions définies par étape}
+
+signum:
+\begin{equation}
+sign(x)=
+    \begin{cases}
+        1 & \text{if } x > 0\\
+        0 & \text{if } < = 0\\
+        -1 & \text{if } x < 0
+    \end{cases}
+\end{equation}
+heaviside:
+\begin{equation}
+H(x)=
+    \begin{cases}
+        1 & \text{if } x > 0\\
+        0 & \text{if } x \leq 0
+    \end{cases}
+\end{equation}
+
+\subsection{Transformations affines}
+
+\[ g(x) = f(ax + b) \]
+$ b $ correspond à une \textbf{translation} du graphe de f, vers la droite si $b < 0$.\\
+$ a $ correspond à une \textbf{compression} (si $ x > 0 $) ou une \textbf{dilatation} (si $x < 0$) du graphe de f.
+
+\paragraph{intuition}
+si on pose $ f(x) = x $ et $ g(x) = x - 4 $, pour retrouver l'origine 0, on doit aller à x = 4, donc on se décale vers la droite.\\
+si on pose $ g(x) = 2x $, on va comprimer le graphe (ici faire monter la courbe plus vite).
+
+\subsection{Limite (épointée) d'une fonction}
+
+$ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsque $ x \to x^* $ si $ \forall (x_n) $ t.q $ \forall n, x_n \in D \backslash \{x^*\} $ t.q $ \lim_{n\to\infty} x_n = x^*$, la suite $ y_n = f(x_n) $ converge et $ \lim_{n\to\infty} y_n = l$\\\\
+La valeur de $ f(x^*) $ peut être différente de la valeur de la limite en $ x^* $.
 
 \end{document}
