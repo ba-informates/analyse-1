@@ -86,5 +86,14 @@ $ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsq
 Ici notre $ x^* = 0 $, donc on choisit une suite $ x_n $ telle que $ lim_{n\to\infty} x_n = 0$, et $ x_n \neq 0$. On a donc $ \forall n, y_n = f(x_n) = 0 $.\\\\
 Ainsi, on peut connaître $ \lim_{n\to\infty} y_n = l = \lim_{n\to\infty} 0 = 0$.
 
+\newpage
+\section{Prouver que la limite de $ sin(\frac{1}{x}) $ en 0 n'existe pas}
+
+On nous donne la suite $ f(x) = sin(\frac{1}{x}) $.\\
+On veut démontrer que $ \lim_{x\to{0}} f(x) $ n'existe pas\\\\
+\textbf{Définiton de la limite épointée :}\\
+$ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsque $ x \to x^* $ si $ \forall (x_n) $ t.q $ \forall n, x_n \in D \backslash \{x^*\} $ t.q $ \lim_{n\to\infty} x_n = x^*$, la suite $ y_n = f(x_n) $ converge et $ \lim_{n\to\infty} y_n = l$\\\\
+Ici notre $ x^* = 0 $. On doit trouver une suite $ x_n $ t.q $ \lim_{n\to\infty} = 0 $ et $ x_n \neq 0$, mais t.q $ y_n = f(x_n) $ diverge.\\\\
+On pose $ x_n = \frac{1}{\frac{\pi}{2} + n \cdot \pi}$. On a $ y_n = sin(\frac{\pi}{2} + n \cdot \pi) = (-1)^n $ qui ne converge pas.
 
 \end{document}
