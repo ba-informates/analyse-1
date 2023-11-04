@@ -326,6 +326,13 @@ La suite $ a_n $ est convergente s'il existe un $ a \in \mathbf{R} $ tel que : \
 divergente $ \Leftrightarrow $ non-convergente\\
 oscille $ \implies $ divergente \\
 Toute suite convergente est bornée!
+
+\subsubsection{Limite vers + ou - infini}
+
+Une suite divergente tend vers + ou - l'infini si :
+
+\[ \forall r \in \mathbf{R}, \exists n_0, \forall n \geq n_0, |a_n|  \geq r \]
+
 \subsubsection{Unicité de la limite}
 Voir théoremes
 
@@ -389,14 +396,31 @@ Si une suite $ a_n = g(a_{n-1} $ avec $ g(x) = q \cdot x + b $, alors :\\\\
 Soit $ a = \frac{b}{1 - q}$
 \begin{itemize}
     \item Si $ |q| < 1 $, la suite converge vers $ a $.
+    \item Si $ |q| > 1 $, la suite diverge.
 \end{itemize}
+\begin{remark}
+    On peut trouver a en posant a = g(a)
+\end{remark}
+\subsection{Théorème de Bolzano-Weierstrass}
+De toute suite $a_n$ bornée, on peut extraie une sous suite convergente \\\\
+a $\in$ R est un point d'accumulation d'une suite $a_n$ s'il existe une sous-suite $d_k$ telle que $\lim_{k\to\infty}d_k = a \implies$  Toute suite bornée à au moins un point d'accumulation
+
+\subsection{Limite inférieure et supérieure}
+La limite inférieure est le plus petit des points d'accumulation \\\\
+La limite supérieure est le plus grand des points d'accumulation
+\begin{remark}
+    $\liminf_{n\to\infty}a_n = \limsup_{n\to\infty}a_n = a \Leftrightarrow \lim_{n\to\infty}a_n = a$
+\end{remark}
 
 \section{Séries numériques}
 
-Soit $ a_n $ la suite des termes d'une série.
-
-\subsection{Critères de comparaison}
-
+Soit $ a_n $ la suite des termes d'une série. \\
+$\sum_{k=0}^{\infty}a_k = \lim_{n\to\infty}s_n, s_n = \sum_{k=0}^{n}a_k$ (somme partielle) \\\\
+La limite s de $s_n$ est appelée la somme de la série numérique \\\\
+Une série $\sum_{k=0}^{\infty}a_k $ est dite absolument convergente si $\sum_{k=0}^{\infty}|a_k| $ converge
+\subsection{Critères de convergence}
+\subsection{Critère nécéssaire}
+$\sum_{k=0}^{\infty}a_k$ converge $\implies \lim_{k\to\infty}a_k = 0$ (voir theorems)
 \subsubsection{Critère de d'Alembert}
 
 On pose $ q = \lim_{n\to\infty}\ \lvert \frac{a_{n+1}}{a_n} \lvert $.\\\\
@@ -418,13 +442,12 @@ Si $ 0 \leq q < 1 $, alors la série converge.\\
 Si $ q = 1 $, on ne sait pas.\\
 Si $ q > 1 $, la série diverge.
 
-\subsubsection{Convergence des séries alternées}
+\subsubsection{Convergence des séries alternées (Leibniz)}
 
 Les séries alternées associées $ \sum_{k=1}^{\infty} (-1)^k \cdot a_k $ convergent si :
 \begin{itemize}
-    \item $ a_n $ est positive.
-    \item La suite $ a_n $ est décroissante.
-    \item $ \lim_{n\to\infty} a_n = 0 $
+    \item La suite $ |a_k| $ est strictement décroissante.
+    \item $ \lim_{n\to\infty} a_k = 0 $
 \end{itemize}
 
 \subsubsection{Critère de comparaison 1}
@@ -450,7 +473,18 @@ $ \implies \sum_{k=1}^{\infty} a_k $ converge absolument.
 $ \implies \sum_{k=1}^{\infty} a_k $ diverge.
 
 \section{Fonctions réelles}
-
+\subsection{Types de fonctions}
+\begin{itemize}
+    \item Polynôme : $ \sum_{k = 0}^{n}a_kx^k $
+    \item Rationnelle : $ \frac{p(x)}{q(x)} $
+    \item Algébrique : Fonctions polynômes et un nombre fini d'opérations
+    \item Transcendante : Fonctions non algébriques $e^x.\ ln(x),\ sin(x)$
+\end{itemize}
+Croissance et décroissance :
+\begin{itemize}
+    \item une fonction est croissante si : $ x_1 \leq x_2 \implies f(x_1) \leq f(x_2) $
+    \item une fonction est décroissante si : $ x_1 \leq x_2 \implies f(x_1) \geq f(x_2) $
+\end{itemize}
 \begin{theorem}
     Une fonction strictement monotone est injective.
 \end{theorem}
@@ -459,12 +493,10 @@ $ \implies \sum_{k=1}^{\infty} a_k $ diverge.
     Un ensemble $ X \subseteq R $ est symmétrique si $ \forall x, (x \in X \implies -x \in X) $.
 \end{definition}
 
+\subsection{Fonctions paires et impaires}
 \begin{definition}
     Une fonction est paire si son ensemble de définition est symmétrique \textbf{et} $ \forall x \in D, (f(x) = f(-x)).$
 \end{definition}
-
-\subsection{Fonctions paires et impaires}
-
 \begin{definition}
     Une fonction est impaire si son ensemble de définition est symmétrique \textbf{et} $ \forall x \in D, (f(x) = -f(-x)).$
 \end{definition}
@@ -479,12 +511,15 @@ Toute fonction dont le domaine de définition est symmétrique peut être décom
 \[ \Leftrightarrow f(x) = \frac{1}{2}(f(x) + f(-x)) + \frac{1}{2}(f(x) - f(-x)) \]
 \[ \Leftrightarrow f(x) = f_{+}(x) + f_{-}(x) \]
 
-\subsubsection{cosh et sinh}
+\subsubsection{Cosh et Sinh}
 
 \[ cosh(x) = \frac{e^x + e^{-x}}{2} \hspace{0.3cm} \text{(paire)} \]
 \[ sinh(x) = \frac{e^x - e^{-x}}{2} \hspace{0.3cm} \text{(impaire)}\]
 
 \[ f(x) = e^x = cosh(x) + sinh(x) \]
+\begin{remark}
+    \[ cosh^2(x) - sinh^2(x) = 1 \]
+\end{remark}
 
 \subsubsection{Identités}
 
@@ -509,9 +544,20 @@ De plus, $ \frac{T_f}{T_g} \in \mathbf{Q} \implies $
     \item $ f + g $ est périodique
     \item $ f \cdot g $ est périodique
 \end{itemize}
+$\frac{T_f}{T_g} = \frac{p}{q} \implies T = p \cdot T_g = q \cdot T_f$ (pas la période)
+\subsection{Inverse et préimage}
+
+\subsubsection{Inverse}
+
+Si f est bijective alors $ f^{-1} $ dénote l'inverse où $ f(f^{-1}(x)) = x = f^{-1}f((x))$
+\subsubsection{Préimage}
+
+f n'a pas besoin d'être bijective\\
+$ f^{-1}(\{y\}) = \{ x \in D_f | f(x) = y\}$\\
+Si f est bij. alors $ f^{-1}(\{y\}) = \{f^{-1}(y)\} $
 
 \subsection{Fonctions définies par étape}
-
+Faire chaque cas possible \\\\
 signum:
 \begin{equation}
 sign(x)=
@@ -533,16 +579,104 @@ H(x)=
 \subsection{Transformations affines}
 
 \[ g(x) = f(ax + b) \]
-$ b $ correspond à une \textbf{translation} du graphe de f, vers la droite si $b < 0$.\\
-$ a $ correspond à une \textbf{compression} (si $ x > 0 $) ou une \textbf{dilatation} (si $x < 0$) du graphe de f.
+\textbf{translation (b)}
+\begin{itemize}
+    \item $ b > 0 $, le graphe est décalé vers la gauche
+    \item $ b < 0 $, le graphe est décalé vers la droite
+\end{itemize}
+\textbf{compression/dilatation/réflexion (a)}
+\begin{itemize}
+    \item $ |a| > 1 $, le graphe est comprimé
+    \item $ 0 < |a| < 1 $, le graphe est dilaté
+    \item $ a < 0 $, le graphe est inversé horizontalement (par rapport à l'axe des ordonnées)
+\end{itemize}
 
-\paragraph{intuition}
+\paragraph{intuition/exemples}
 si on pose $ f(x) = x $ et $ g(x) = x - 4 $, pour retrouver l'origine 0, on doit aller à x = 4, donc on se décale vers la droite.\\
 si on pose $ g(x) = 2x $, on va comprimer le graphe (ici faire monter la courbe plus vite).
 
 \subsection{Limite (épointée) d'une fonction}
 
 $ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsque $ x \to x^* $ si $ \forall (x_n) $ t.q $ \forall n, x_n \in D \backslash \{x^*\} $ t.q $ \lim_{n\to\infty} x_n = x^*$, la suite $ y_n = f(x_n) $ converge et $ \lim_{n\to\infty} y_n = l$\\\\
-La valeur de $ f(x^*) $ peut être différente de la valeur de la limite en $ x^* $.
+La valeur de $ f(x^*) $ peut être différente de la valeur de la limite en $ x^* $.\\\\
+\textit{voir dans les théorèmes 5/6 pour des exemples}
+
+\subsubsection{Définition équivalente}
+
+$ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsque $ x \to x^* $ si $ \forall \epsilon > 0, \exists \delta > 0, \forall x \in D, (0 < |x-x^*| \leq \delta) \implies |f(x) - l| \leq \epsilon)$
+
+\subsubsection{Limite (épointée) à gauche ou à droite}
+
+On modifie la définition du haut en rajoutant pour condition soit que $ \forall x_n (x_n < x^*) $ (si on veut la limite à gauche), soit $ \forall x_n (x_n > x^*)$ si on veut la limite à gauche et on introduit les notations $ l_+ $ et $ l_-$.
+
+\subsection{Opérations algébriques sur les limites}
+
+Ici la limite correspond à la limite épointée, la limite à gauche ou la limite droite. On doit garder le même choix pour toutes les implications.
+
+\[ (lim_{x\to{x^*}} f(x) = a \wedge lim_{x\to{x^*}} g(x) = b) \]
+\[ \implies \]
+\[ (lim_{x\to{x^*}} (f(x) + g(x)) = lim_{x\to{x^*}} f(x) + lim_{x\to{x^*}} g(x) = a + b) \]
+\[ \wedge\ (lim_{x\to{x^*}} (f(x) \cdot g(x)) = lim_{x\to{x^*}} f(x) \cdot lim_{x\to{x^*}} g(x) = a \cdot b) \]
+\[ \wedge\ (b \neq 0 \implies lim_{x\to{x^*}} \frac{f(x)}{g(x)} = \frac{lim_{x\to{x^*}} f(x)}{lim_{x\to{x^*}} g(x)} = \frac{a}{b}) \]
+
+\subsection{Limites + ou - l'infini}
+
+\subsubsection{Limite égale à l'infini en un point}
+
+\[ lim_{x\to{x^*}} f(x) = +\infty \in \mathbf{R} \]
+\[ \Leftrightarrow \]
+$ \forall $ suite $ (x_n), x_n \in D(f) $ et $ lim_{n\to\infty} x_n = x^* $, on a: $ lim_{n\to\infty} f(x_n) = +\infty $
+
+\subsubsection{Limite évaluée à l'infini}
+
+\[ lim_{x\to\infty} f(x) = l \in \mathbf{R} \]
+\[ \Leftrightarrow \]
+$ \forall $ suite $ (x_n), x_n \in D(f) $ et $ lim_{n\to\infty} x_n = +\infty $, on a: $ lim_{n\to\infty} f(x_n) = l $
+
+\subsection{Limites et composition de fonction}
+
+Soit $ f, g : \mathbf{R} \to \mathbf{R} $ et $ h = g \circ f $\\\\
+Si $ lim_{n\to\infty} f(x) = y^*$ et $ \lim_{\underset{y \neq y^*}{y \rightarrow y^*}} g(y) = l $\\\\
+$ lim_{x\to\infty} g(f(x)) = l $ \textbf{SI} on a bien $ y \neq y^* $ (f doit éviter la valeur de la limite)
+
+TODO à compléter plus clairement
+
+\subsection{Fonctions continues en un point}
+
+$ x_0 \in D \subset \mathbf{R}, D \neq \emptyset, $ est appelé un point isolé de $ D $ si $ \exists \epsilon > 0, $ t.q $ ]x_0 - \epsilon, x_0 + \epsilon[\ \cap\ D = \{ x_0 \}$\\\\
+Une fonction $ f : D \to \mathbf{R} $ est continue en un point $ x_0 \in \mathbf{D} $ si $ x_0 $ est un point isolé de $ D $ ou si $ lim_{x\to{x_0}} = f(x_0) $ ("on regarde les deux valeurs à droite et à gauche")\\\\
+Remarque : si on sait que $ f $ est continue, on peut calculer la limite en $ x_0 $ en évaluant $ f(x_0) $.
+
+\subsubsection{Définition avec $\epsilon $ et $\delta$}
+
+$ f : D \to \mathbf{R} $ est continue en $ x_0 \in D $ si $ \forall \epsilon > 0, \exists \delta > 0, $ t.q $ \forall \in D, |x - x_0| \leq \delta \implies |f(x) - f(x_0)| \leq \epsilon$
+
+\subsubsection{Fonctions continues}
+
+$ f $ est dite continue ou continue sur $ D $ si $ f $ est continue en tout $ x_0 \in D $.
+
+\subsubsection{Prolongement par continuitié}
+
+Si $ lim_{x\to{x_0}} f(x) = l \in \mathbf{R} $ mais $ x_0 \notin D(f) $, on définit une fonction $ \hat{f}_{x_0} : D(f) \cup \{x_0\} \to \mathbf{R} $
+
+\begin{equation}
+\hat{f}_{x_0}(x) = 
+    \begin{cases}
+        f(x) & \text{if } x \in D\\
+        lim_{x\to{x_0}f(x) & \text{if } x = x_0\\
+    \end{cases}
+\end{equation}
+et on a bien $ \hat{f} $ continue.
+
+\subsubsection{Image d'une fonction continue}
+
+L'image $ f(I) $ d'une fonction $f$ continue sur un intervalle $ I = ]a, b[ \subset D$ est un intervalle, mais pas forcément ouvert (tout le temps vrai dans le cas où f est strictement monotone) ni borné.
+
+\subsubsection{Fonctions élémentaires}
+
+La composition de deux fonctions continues est une fonction continue sur son domaine de définition.\\\\
+Une \textbf{fonction élementaire} est une fonction construite à partir de fonctions algébriques exponentielles, logarithmiques, sinus et cosinus, et un nombre fini d'opérations $ +, \cdot, /, \circ $.\\\\
+Une fonction élementaire est continue sur son domaine de définition.\\\\
+Ainsi, pour une fonction élémentaire, $ \forall x_0 \in D, lim_{x\to{x_0}} f(x) = f(x_0) $
 
 \end{document}

@@ -67,12 +67,12 @@ On veut démontrer :
 Si la série est convergente, alors la suite des sommes partielles $ S_n $ est aussi convergente, et est donc une suite de Cauchy.
 \[ S_n = \sum_{k=0}^{n} a_k \]\\
 alors :
-\[ \forall \epsilon,\ \exists\ N\ \text{t.q}\ \forall n, m \geq N \in \mathbf{N},\ \lvert S_n - S_m \lvert\ \leq \epsilon \]
+\[ \forall \epsilon > 0,\ \exists\ N\ \text{t.q}\ \forall n, m \geq N \in \mathbf{N},\ \lvert S_n - S_m \lvert\ \leq \epsilon \]
 en particulier, on a :
 \[ \lvert S_{m+1} - S_m \lvert\ \leq \epsilon \]
 \[ \Leftrightarrow \lvert a_{m+1} \lvert\ \leq \epsilon \]\\\\
 Ainsi, on retrouve la définition de limite pour $ a_n $:\\
-\[ \forall\ \epsilon,\ \exists\ n_0 \in \mathbf{N},\ \text{t.q}\ \forall n \geq n_0,\ |a_n - 0| \leq \epsilon \]\\
+\[ \forall\ \epsilon > 0,\ \exists\ n_0 \in \mathbf{N},\ \text{t.q}\ \forall n \geq n_0 + 1,\ |a_n - 0| \leq \epsilon \]\\
 \[ \Leftrightarrow \lim_{n\to\infty} a_n = 0 \]
 
 \newpage
@@ -82,8 +82,8 @@ Ainsi, on retrouve la définition de limite pour $ a_n $:\\
 On nous donne la suite $ f(x) = 0 $ si $ x \neq 0 $, et $ f(0) = 1 $.\\
 On veut démontrer que $ \lim_{x\to{0}} f(x) = 0 $. (et non pas 1...)\\\\
 \textbf{Définiton de la limite épointée :}\\
-$ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsque $ x \to x^* $ si $ \forall (x_n) $ t.q $ \forall n, x_n \in D \backslash \{x^*\} $ t.q $ \lim_{n\to\infty} x_n = x^*$, la suite $ y_n = f(x_n) $ converge et $ \lim_{n\to\infty} y_n = l$\\\\
-Ici notre $ x^* = 0 $, donc on choisit une suite $ x_n $ telle que $ lim_{n\to\infty} x_n = 0$, et $ x_n \neq 0$. On a donc $ \forall n, y_n = f(x_n) = 0 $.\\\\
+$ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsque $ x \to x^* $ si $ \forall (x_n) $ t.q $ \forall n, x_n \in D \backslash \{x^*\} $ t.q $ \lim_{n\to\infty} x_n = x^*$ , la suite $ y_n = f(x_n) $ converge et $ \lim_{n\to\infty} y_n = l$\\\\
+Ici notre $ x^* = 0 $, donc on choisit une suite $ x_n $ telle que $ lim_{n\to\infty} x_n = 0$, et $ x_n \neq 0$ (ex $\frac{1}{n}$). On a donc $ \forall n, y_n = f(x_n) = 0 $ car $x_n \neq 0$.\\\\
 Ainsi, on peut connaître $ \lim_{n\to\infty} y_n = l = \lim_{n\to\infty} 0 = 0$.
 
 \newpage
@@ -93,7 +93,62 @@ On nous donne la suite $ f(x) = sin(\frac{1}{x}) $.\\
 On veut démontrer que $ \lim_{x\to{0}} f(x) $ n'existe pas\\\\
 \textbf{Définiton de la limite épointée :}\\
 $ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsque $ x \to x^* $ si $ \forall (x_n) $ t.q $ \forall n, x_n \in D \backslash \{x^*\} $ t.q $ \lim_{n\to\infty} x_n = x^*$, la suite $ y_n = f(x_n) $ converge et $ \lim_{n\to\infty} y_n = l$\\\\
-Ici notre $ x^* = 0 $. On doit trouver une suite $ x_n $ t.q $ \lim_{n\to\infty} = 0 $ et $ x_n \neq 0$, mais t.q $ y_n = f(x_n) $ diverge.\\\\
+Ici notre $ x^* = 0 $. 
+\subsection{Méthode 1}
+On doit trouver une suite $ x_n $ t.q $ \lim_{n\to\infty}x_n= 0 $ et $ x_n \neq 0$, mais t.q $ y_n = f(x_n) $ diverge.\\\\
 On pose $ x_n = \frac{1}{\frac{\pi}{2} + n \cdot \pi}$. On a $ y_n = sin(\frac{\pi}{2} + n \cdot \pi) = (-1)^n $ qui ne converge pas.
+\subsection{Méthode 2}
+On trouve deux suites $x_n$, $z_n$ telle que $y_n$ diverge : \\\\
+$x_n = \frac{1}{2\pi n}$ et $z_n = \frac{1}{\frac{\pi}{2} + n2\pi}$ \\\\
+On a $x_n = 0,\ z_n = 0,\ \lim_{n\to\infty}x_n = 0\ et \lim_{n\to\infty}z_n = 0$ \\\\
+$y_n = f(x_n) = sin(2\pi n) = 0,\ y_{n2} = f(z_n) = sin(\frac{\pi}{2} + 2\pi n) = 1$ \\\\
+donc $\lim_{n\to\infty}y_n = 0$ mais $\lim_{n\to\infty}y_{n2} = 1$
+
+\newpage
+\section{Théorème des deux gendarmes pour les fonctions}
+
+\subsection{Enoncé}
+
+Soient $ f, g, h: D \to \mathbf{R}, D \subset \mathbf{R}, D \neq 0 $\\
+Soit $ x^* \in \mathbf{R} $ ou $ x^* \in \{+\infty, -\infty\}$, t.q $ x^* = lim_{n\to\infty} x_n $ pour une suite $ (x_n), x_n \in D, x_n \neq x^* $.\\\\
+Supposons :
+
+\paragraph{i)}
+
+\begin{itemize}
+    \item cas $ x^* \in \mathbf{R} $ :
+
+$ \exists \epsilon > 0 $ t.q $ \forall x \in D $, $ |x-x^*| \leq \epsilon \implies f(x) \leq h(x) \leq g(x) $
+
+\item cas $ x^* = +\infty $ :
+
+$ \exists \epsilon > 0 $ t.q $ \forall x \in D $, $ x > \epsilon \implies f(x) \leq h(x) \leq g(x) $
+
+\item cas $ x^* = -\infty $ :
+
+$ \exists \epsilon < 0 $ t.q $ \forall x \in D $, $ x < \epsilon \implies f(x) \leq h(x) \leq g(x) $
+
+\end{itemize}
+
+\paragraph{ii)}
+
+$ lim_{x\to{x^*}} f(x) = lim_{x\to{x^*}} g(x) $\\\\
+Alors : 
+
+\[ lim_{x\to{x^*}} h(x) = l \]
+
+\subsection{Démonstration}
+
+$ \epsilon $ est donné par i).\\
+Soit une suite $ (x_n), x_n \in D, x_n \neq x^* $ et $ lim_{n\to\infty} x_n = x^* $.\\\\
+Par définition de $ lim_{n\to\infty} x_n = x^*, \exists n_0 $, t.q, $ \forall n \geq n_0, $ :
+\begin{itemize}
+    \item $ |x_n - x^*| \geq \epsilon $ (cas où $ x^* \in \mathbf{R} $)
+    \item $ x_n \geq \epsilon $ (cas où $ x^* = +\infty)$
+    \item $ x_n \leq \epsilon $ (cas où $ x^* = -\infty)$
+\end{itemize}
+donc $ \forall n \geq n_0 $:
+\[ f(x_n) \leq h(x_n) \leq g(x_n) \]
+et par ii), $ lim_{n\to\infty} f(x_n) = l $ et $ lim_{n\to\infty} g(x_n) = l $, donc $ lim_{n\to\infty} h(x_n) = l $ (par le théorème des gendarmes pour les suites).
 
 \end{document}
