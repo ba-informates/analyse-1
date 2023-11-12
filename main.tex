@@ -613,38 +613,36 @@ On modifie la définition du haut en rajoutant pour condition soit que $ \forall
 
 Ici la limite correspond à la limite épointée, la limite à gauche ou la limite droite. On doit garder le même choix pour toutes les implications.
 
-\[ (lim_{x\to{x^*}} f(x) = a \wedge lim_{x\to{x^*}} g(x) = b) \]
+\[ (lim_{x\to{x^*}} f(x) = a \wedge \lim_{x\to{x^*}} g(x) = b) \]
 \[ \implies \]
-\[ (lim_{x\to{x^*}} (f(x) + g(x)) = lim_{x\to{x^*}} f(x) + lim_{x\to{x^*}} g(x) = a + b) \]
-\[ \wedge\ (lim_{x\to{x^*}} (f(x) \cdot g(x)) = lim_{x\to{x^*}} f(x) \cdot lim_{x\to{x^*}} g(x) = a \cdot b) \]
-\[ \wedge\ (b \neq 0 \implies lim_{x\to{x^*}} \frac{f(x)}{g(x)} = \frac{lim_{x\to{x^*}} f(x)}{lim_{x\to{x^*}} g(x)} = \frac{a}{b}) \]
+\[ (lim_{x\to{x^*}} (f(x) + g(x)) = \lim_{x\to{x^*}} f(x) + \lim_{x\to{x^*}} g(x) = a + b) \]
+\[ \wedge\ (lim_{x\to{x^*}} (f(x) \cdot g(x)) = \lim_{x\to{x^*}} f(x) \cdot \lim_{x\to{x^*}} g(x) = a \cdot b) \]
+\[ \wedge\ (b \neq 0 \implies \lim_{x\to{x^*}} \frac{f(x)}{g(x)} = \frac{lim_{x\to{x^*}} f(x)}{lim_{x\to{x^*}} g(x)} = \frac{a}{b}) \]
 
 \subsection{Limites + ou - l'infini}
 
 \subsubsection{Limite égale à l'infini en un point}
 
-\[ lim_{x\to{x^*}} f(x) = +\infty \in \mathbf{R} \]
+\[ \lim_{x\to{x^*}} f(x) = +\infty \in \mathbf{R} \]
 \[ \Leftrightarrow \]
-$ \forall $ suite $ (x_n), x_n \in D(f) $ et $ lim_{n\to\infty} x_n = x^* $, on a: $ lim_{n\to\infty} f(x_n) = +\infty $
+$ \forall $ suite $ (x_n), x_n \in D(f) $ et $ \lim_{n\to\infty} x_n = x^* $, on a: $ \lim_{n\to\infty} f(x_n) = +\infty $
 
 \subsubsection{Limite évaluée à l'infini}
 
-\[ lim_{x\to\infty} f(x) = l \in \mathbf{R} \]
+\[ \lim_{x\to\infty} f(x) = l \in \mathbf{R} \]
 \[ \Leftrightarrow \]
-$ \forall $ suite $ (x_n), x_n \in D(f) $ et $ lim_{n\to\infty} x_n = +\infty $, on a: $ lim_{n\to\infty} f(x_n) = l $
+$ \forall $ suite $ (x_n), x_n \in D(f) $ et $ \lim_{n\to\infty} x_n = +\infty $, on a: $ \lim_{n\to\infty} f(x_n) = l $
 
 \subsection{Limites et composition de fonction}
 
 Soit $ f, g : \mathbf{R} \to \mathbf{R} $ et $ h = g \circ f $\\\\
-Si $ lim_{n\to\infty} f(x) = y^*$ et $ \lim_{\underset{y \neq y^*}{y \rightarrow y^*}} g(y) = l $\\\\
-$ lim_{x\to\infty} g(f(x)) = l $ \textbf{SI} on a bien $ y \neq y^* $ (f doit éviter la valeur de la limite)
-
-TODO à compléter plus clairement
+Si $ \lim_{x\to\infty} f(x) = y^*$ et $ \lim_{\underset{y \neq y^*}{y \rightarrow y^*}} g(y) = l $\\\\
+$ \lim_{x\to\infty} g(f(x)) = l $ \textbf{SI} on a bien $ y \neq y^* $ (f doit éviter la valeur de la limite)
 
 \subsection{Fonctions continues en un point}
 
 $ x_0 \in D \subset \mathbf{R}, D \neq \emptyset, $ est appelé un point isolé de $ D $ si $ \exists \epsilon > 0, $ t.q $ ]x_0 - \epsilon, x_0 + \epsilon[\ \cap\ D = \{ x_0 \}$\\\\
-Une fonction $ f : D \to \mathbf{R} $ est continue en un point $ x_0 \in \mathbf{D} $ si $ x_0 $ est un point isolé de $ D $ ou si $ lim_{x\to{x_0}} = f(x_0) $ ("on regarde les deux valeurs à droite et à gauche")\\\\
+Une fonction $ f : D \to \mathbf{R} $ est continue en un point $ x_0 \in \mathbf{D} $ si $ x_0 $ est un point isolé de $ D $ ou si $ \lim_{x\to{x_0}} = f(x_0) $ ("on regarde les deux valeurs à droite et à gauche")\\\\
 Remarque : si on sait que $ f $ est continue, on peut calculer la limite en $ x_0 $ en évaluant $ f(x_0) $.
 
 \subsubsection{Définition avec $\epsilon $ et $\delta$}
@@ -657,13 +655,13 @@ $ f $ est dite continue ou continue sur $ D $ si $ f $ est continue en tout $ x_
 
 \subsubsection{Prolongement par continuitié}
 
-Si $ lim_{x\to{x_0}} f(x) = l \in \mathbf{R} $ mais $ x_0 \notin D(f) $, on définit une fonction $ \hat{f}_{x_0} : D(f) \cup \{x_0\} \to \mathbf{R} $
+Si $ \lim_{x\to{x_0}} f(x) = l \in \mathbf{R} $ mais $ x_0 \notin D(f) $, on définit une fonction $ \hat{f}_{x_0} : D(f) \cup \{x_0\} \to \mathbf{R} $
 
 \begin{equation}
 \hat{f}_{x_0}(x) = 
     \begin{cases}
         f(x) & \text{if } x \in D\\
-        lim_{x\to{x_0}f(x) & \text{if } x = x_0\\
+        \lim_{x\to{x_0}}f(x) & \text{if } x = x_0\\
     \end{cases}
 \end{equation}
 et on a bien $ \hat{f} $ continue.
@@ -677,6 +675,33 @@ L'image $ f(I) $ d'une fonction $f$ continue sur un intervalle $ I = ]a, b[ \sub
 La composition de deux fonctions continues est une fonction continue sur son domaine de définition.\\\\
 Une \textbf{fonction élementaire} est une fonction construite à partir de fonctions algébriques exponentielles, logarithmiques, sinus et cosinus, et un nombre fini d'opérations $ +, \cdot, /, \circ $.\\\\
 Une fonction élementaire est continue sur son domaine de définition.\\\\
-Ainsi, pour une fonction élémentaire, $ \forall x_0 \in D, lim_{x\to{x_0}} f(x) = f(x_0) $
+Ainsi, pour une fonction élémentaire, $ \forall x_0 \in D, \lim_{x\to{x_0}} f(x) = f(x_0) $
+
+\subsubsection{Fonctions continues sur des intervalles fermés}
+
+Si f est continue sur un intervalle fermé $ D $ si f est continue en tout point $ x \in D $ et aussi à droite et à gauche (quand on a un intervalle fermé on a qu'une seule façon de s'approcher des bornes, par $ a_+ $ (limite à droite) pour la borne inférieure et $ b_- $ (limite à gauche) pour la borne supérieure).
+
+\subsection{Théorème du min max}
+
+Soit a, b......... TODO alors
+
+\subsection{Théorème des valeurs intermédiaires}
+
+Soit a, b... TODO 
+
+\subsection{Théorème 3}
+
+Soit ... TODO
+
+\subsection{Théorème du point fixe}
+
+voir fichier theorems.tex
+
+\subsection{Dérivabilité}
+
+Soit $ f : D \to \mathbf{R} $ et $ x_0 \in ]a, b[ \subset D \subset \mathbf{R}, a, b \in \mathbf{R}, a < b $.\\\\
+$ f $ est \textbf{dérivable} en $ x_0 $ si $ f $ admet la limite :
+\[ \lim_{x\to{x_0}} \frac{f(x) - f(x_0)}{x - x_0} =: d \in \mathbf{R} \]
+c'est à dire, si cette limite existe.
 
 \end{document}

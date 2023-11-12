@@ -83,7 +83,7 @@ On nous donne la suite $ f(x) = 0 $ si $ x \neq 0 $, et $ f(0) = 1 $.\\
 On veut démontrer que $ \lim_{x\to{0}} f(x) = 0 $. (et non pas 1...)\\\\
 \textbf{Définiton de la limite épointée :}\\
 $ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsque $ x \to x^* $ si $ \forall (x_n) $ t.q $ \forall n, x_n \in D \backslash \{x^*\} $ t.q $ \lim_{n\to\infty} x_n = x^*$ , la suite $ y_n = f(x_n) $ converge et $ \lim_{n\to\infty} y_n = l$\\\\
-Ici notre $ x^* = 0 $, donc on choisit une suite $ x_n $ telle que $ lim_{n\to\infty} x_n = 0$, et $ x_n \neq 0$ (ex $\frac{1}{n}$). On a donc $ \forall n, y_n = f(x_n) = 0 $ car $x_n \neq 0$.\\\\
+Ici notre $ x^* = 0 $, donc on choisit une suite $ x_n $ telle que $ \lim_{n\to\infty} x_n = 0$, et $ x_n \neq 0$ (ex $\frac{1}{n}$). On a donc $ \forall n, y_n = f(x_n) = 0 $ car $x_n \neq 0$.\\\\
 Ainsi, on peut connaître $ \lim_{n\to\infty} y_n = l = \lim_{n\to\infty} 0 = 0$.
 
 \newpage
@@ -110,7 +110,7 @@ donc $\lim_{n\to\infty}y_n = 0$ mais $\lim_{n\to\infty}y_{n2} = 1$
 \subsection{Enoncé}
 
 Soient $ f, g, h: D \to \mathbf{R}, D \subset \mathbf{R}, D \neq 0 $\\
-Soit $ x^* \in \mathbf{R} $ ou $ x^* \in \{+\infty, -\infty\}$, t.q $ x^* = lim_{n\to\infty} x_n $ pour une suite $ (x_n), x_n \in D, x_n \neq x^* $.\\\\
+Soit $ x^* \in \mathbf{R} $ ou $ x^* \in \{+\infty, -\infty\}$, t.q $ x^* = \lim_{n\to\infty} x_n $ pour une suite $ (x_n), x_n \in D, x_n \neq x^* $.\\\\
 Supposons :
 
 \paragraph{i)}
@@ -132,16 +132,16 @@ $ \exists \epsilon < 0 $ t.q $ \forall x \in D $, $ x < \epsilon \implies f(x) \
 
 \paragraph{ii)}
 
-$ lim_{x\to{x^*}} f(x) = lim_{x\to{x^*}} g(x) $\\\\
+$ \lim_{x\to{x^*}} f(x) = \lim_{x\to{x^*}} g(x) $\\\\
 Alors : 
 
-\[ lim_{x\to{x^*}} h(x) = l \]
+\[ \lim_{x\to{x^*}} h(x) = l \]
 
 \subsection{Démonstration}
 
 $ \epsilon $ est donné par i).\\
-Soit une suite $ (x_n), x_n \in D, x_n \neq x^* $ et $ lim_{n\to\infty} x_n = x^* $.\\\\
-Par définition de $ lim_{n\to\infty} x_n = x^*, \exists n_0 $, t.q, $ \forall n \geq n_0, $ :
+Soit une suite $ (x_n), x_n \in D, x_n \neq x^* $ et $ \lim_{n\to\infty} x_n = x^* $.\\\\
+Par définition de $ \lim_{n\to\infty} x_n = x^*, \exists n_0 $, t.q, $ \forall n \geq n_0, $ :
 \begin{itemize}
     \item $ |x_n - x^*| \geq \epsilon $ (cas où $ x^* \in \mathbf{R} $)
     \item $ x_n \geq \epsilon $ (cas où $ x^* = +\infty)$
@@ -149,6 +149,31 @@ Par définition de $ lim_{n\to\infty} x_n = x^*, \exists n_0 $, t.q, $ \forall n
 \end{itemize}
 donc $ \forall n \geq n_0 $:
 \[ f(x_n) \leq h(x_n) \leq g(x_n) \]
-et par ii), $ lim_{n\to\infty} f(x_n) = l $ et $ lim_{n\to\infty} g(x_n) = l $, donc $ lim_{n\to\infty} h(x_n) = l $ (par le théorème des gendarmes pour les suites).
+et par ii), $ \lim_{n\to\infty} f(x_n) = l $ et $ \lim_{n\to\infty} g(x_n) = l $, donc $ \lim_{n\to\infty} h(x_n) = l $ (par le théorème des gendarmes pour les suites).
+
+\newpage
+
+\section{Théorème du point fixe}
+
+\subsection{Enoncé}
+
+\paragraph{Définition} : une fonction $ f : D \to \mathbf{R} $ admet $ x \in D $ comme point fixe si $ f(x) = x $.\\\\
+Soit $ a, b \in \mathbf{R}, a < b $. Alors toute fonction continue $ f : [a, b] \to Im(f) \subset [a, b] $ admet un point fixe.\\\\
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=12cm]{Images/pointfixe.png}
+    \caption{Illustration du théorème}
+    \label{fig:complex}
+\end{figure} 
+
+\subsection{Démonstration}
+
+La fonction $ g(x) := x - f(x) $ est continue sur $ [a, b] $ car $ f $ continue sur $ [a, b] $.\\
+$ g(a) \leq 0 $ et $ g(b) \geq 0 $ et par le théorème des valeurs intermédiaires $ \exists x \in [a, b] $ t.q $ g(x) = 0 \Leftrightarrow f(x) = x $.
+
+TODO: détailler l'énoncé du théorème des valeurs intérmédiaires
+
+\paragraph{Remarque}: pour les suites définies par récurrence par une fonction continue, ce théorème permet d'identifier les limites eventuelles.
 
 \end{document}
