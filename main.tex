@@ -63,7 +63,7 @@ P(X) est l'ensemble dont les éléments sont tous les sous-ensembles de X. Sa ca
 \begin{definition}
     Un sous ensemble \(R \subset X \times X\) est appelé \underline{une relation d'équivalence} sur X si :
     \begin{enumerate}
-        \item \( \forall x \in X,\quad x \sim x \) (R est réfléctive)
+        \item \( \forall x \in X,\quad x \sim x \) (R est réflexive)
         \item \( \forall x,\,y \in X,\quad  x \sim y \Rightarrow y \sim x \) (R est symétrique)
         \item \( \forall x,\,y,\, z \in X,\quad x \sim y\, \wedge\, y \sim z \Rightarrow x \sim z \) (R est transitive)
     \end{enumerate}
@@ -205,7 +205,7 @@ Inégalités triangulaires :
 Identités :
 \begin{itemize}
     \item \( |x +\ y| + |x -\ y| =  |x| + |y| + ||x| - |y|| = 2 \cdot max\{|x|, |y|\}\)
-    \item \( ||x +\ y| - |x -\ y|| =  |x| + |y| - ||x| - |y|| = 2 \cdot min\{|x|, |y|\}\)
+    \item \( |x +\ y| - |x -\ y|| =  |x| + |y| - ||x| - |y|| = 2 \cdot min\{|x|, |y|\}\)
 \end{itemize}
 \section{Nombres complexes}
 \begin{definition}
@@ -257,7 +257,7 @@ L'\underline{élément inverse} de z : \(\frac{1}{z} = \frac{1}{|z|^2}\cdot\over
     \item \( \cos{\phi} = \frac{e^{i\phi} + e^{-i\phi}}{2} \Rightarrow \cos{z} = \frac{e^{iz} + e^{-iz}}{2} \)
     \item \( \sin{\phi} = \frac{e^{i\phi} - e^{-i\phi}}{2} \Rightarrow \sin{z} = \frac{e^{iz} - e^{-iz}}{2} \)
 \end{itemize}
-\underline{Forme polaire} : z = \( |z|\cdot e^{i\phi} \) \qquad \qquad \qquad \( \phi \in ]-\pi, \pi]\)
+\underline{Forme polaire} : z = \( |z|\cdot e^{i\phi} \) \qquad \qquad \qquad \( \phi \in [0, \pi]\)
 \begin{itemize}
     \item arg(z) = \(\phi\) = 2 \( \arctan{\frac{b}{a + |z|}} \) ou \( \arctan{\frac{b}{a}}\) si a $>$ 0 (ou vérifier le cadran)
     \item \( z_1z_2 = |z_1||z_2|e^{i(\phi_1 + \phi_2)} \)
@@ -419,6 +419,13 @@ $\sum_{k=0}^{\infty}a_k = \lim_{n\to\infty}s_n, s_n = \sum_{k=0}^{n}a_k$ (somme 
 La limite s de $s_n$ est appelée la somme de la série numérique \\\\
 Une série $\sum_{k=0}^{\infty}a_k $ est dite absolument convergente si $\sum_{k=0}^{\infty}|a_k| $ converge
 \subsection{Critères de convergence}
+
+\subsection{Exemples}
+
+Série harmonique $ \sum \frac{1}{k} $ diverge.\\\\
+Série harmonique alternée $ \sum (-1)^{(k-1)} \cdot \frac{1}{k} $ converge (mais pas absolument).\\\\
+Série géométrique $\sum q^k $ converge absolument pour $ |q| < 1 $ et diverge sinon.
+
 \subsection{Critère nécéssaire}
 $\sum_{k=0}^{\infty}a_k$ converge $\implies \lim_{k\to\infty}a_k = 0$ (voir theorems)
 \subsubsection{Critère de d'Alembert}
@@ -683,25 +690,267 @@ Si f est continue sur un intervalle fermé $ D $ si f est continue en tout point
 
 \subsection{Théorème du min max}
 
-Soit a, b......... TODO alors
+Si f est continue, elle admet un minimum et un maximum tq :
+\[ f(c) \leq f(x) \leq f(d)\]
+
+\subsection{Méthode de la bissection}
+Soit une fonction continue tq g(a) < 0 et g(b) > 0, alors il existe g(c) = 0 et on peut s'en approcher par : \[u_n = \frac{1}{2}(a_n + b_n)\]
+\begin{itemize}
+    \item $g(u_n) < 0 : a_{n+1} = u_n$
+    \item $g(u_n) > 0 : b_{n+1} = b_n $
+\end{itemize}
 
 \subsection{Théorème des valeurs intermédiaires}
 
-Soit a, b... TODO 
+Soit a, b, toute fonction continue prend (au moins une fois) toutes les valeurs entre f(a) et f(b)
 
 \subsection{Théorème 3}
 
-Soit ... TODO
+Soit une fonction continue, alors Imf = [m, M] (minimum et maximum)
 
 \subsection{Théorème du point fixe}
 
 voir fichier theorems.tex
 
-\subsection{Dérivabilité}
+\section{Dérivation}
 
 Soit $ f : D \to \mathbf{R} $ et $ x_0 \in ]a, b[ \subset D \subset \mathbf{R}, a, b \in \mathbf{R}, a < b $.\\\\
+
+\subsection{Dérivabilité}
+
 $ f $ est \textbf{dérivable} en $ x_0 $ si $ f $ admet la limite :
 \[ \lim_{x\to{x_0}} \frac{f(x) - f(x_0)}{x - x_0} =: d \in \mathbf{R} \]
-c'est à dire, si cette limite existe.
+\[lim_{h\to{0}} \frac{f{(x_0 + h) - f(x_0)}}{h}\]
+c'est à dire, si cette limite existe. On écrit $ d|_{x_0}$ pour se souvenir que c'est la dérivée de $ f $ en $ x_0 $.
+
+\subsection{Différentiabilité}
+
+$ f  $ est différentiable en $ x_0 $ s'il existe un nombre $ \alpha \in \mathbf{R} $ et une fonction reste $ r :\ ]a, b[ \to \mathbf{R} $ tels que $ \forall x \in ]a, b[ $ :
+\[ f(x) = f(x_0) + \alpha \cdot (x - x_0) + r(x) \]
+\[ f(x_0 + h) = f(x_0) + \alpha \cdot h) + r(x_0 + h) \]  \\\\
+avec $ \lim_{x\to{x_0}} \frac{r(x)}{x-{x_0}} = 0 <=>  \lim_{h\to 0} \frac{r(x_0 + h)}{h} = 0 $
+\paragraph{Remarque}: $ r(x_0) = 0 $ par définition et $ r(x) $ est dérivable en $ x_0 $ avec pour dérivée 0.
+
+\begin{equation}
+\hat{R}(x) = 
+    \begin{cases}
+         \frac{r(x)}{x-{x_0}} & \text{if } x \in ]a,b[ \setminus {x_o}\\
+        0 & \text{if } x = x_0\\
+    \end{cases}
+\end{equation}
+$\implies r(x) = R(x)(x - x_0) $
+\subsection{Fonction dérivée}
+
+\[f'(x) = lim_{h\to{0}} \frac{f(x+h) - f(x)}{h}\]
+
+\subsection{Exemple de fonctions dérivées}
+
+$ m \in \mathbf{N^*}$\\
+$ p \in \mathbf{R}\ \backslash\ \mathbf{N} $
+
+\begin{center}
+\begin{tabular}{||c c c||} 
+ \hline
+$f$ & $f'$ & $f''$ \\ [0.5ex] 
+ \hline\hline
+ 1 & 0 & 0 \\ 
+ \hline
+ $x$ & 1 & 0 \\ 
+ \hline
+ $x^m$ & $m \cdot x^{m-1}$ & \begin{equation}
+ \nonumber
+ \begin{cases}
+    m \cdot (m-1) \cdot ... \cdot (m-n+1) \cdot x^{m-n} & \text{if } n \leq m\\
+    0 & \text{if } n > m\\
+ \end{cases}
+ \end{equation} \\ 
+ \hline
+ $x^p, (x > 0)$ & $p \cdot x^{p-1}$ & $p \cdot (p-1) \cdot ... \cdot (p-n+1) \cdot x^{p-n}$ \\ 
+ \hline
+ $sin(x)$ & $cos(x)$ & \begin{equation}
+ \nonumber
+ \begin{cases}
+    (-1)^{n/2} \cdot sin(x) & \text{if} n\ \text{pair} \\
+    TODO & \text{if } n > m\\
+ \end{cases}
+ \end{equation}  \\
+ \hline
+ $cos(x)$ & $-sin(x)$ TODOO & 0 \\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}
+\begin{theorem}
+    Une fonction derivable en un point est continue en un point
+\end{theorem}
+\begin{theorem}
+    Une fonction est dérivable en un point si les dérivées à gauche et à droite sont égales
+\end{theorem}
+\subsection{Opérations algébriques sur les dérivées}
+\begin{itemize}
+    \item $(\alpha f + \beta g)' =\alpha f' + \beta g' $
+    \item $(fg)' = f'g + fg'$
+    \item $(\frac{f}{g})' = \frac{f'g - fg'}{g^2}$
+\end{itemize}
+
+\subsection{Dérivation en chaîne}
+
+Si f dérivable en $ x_0 $ et g dérivable en $ f(x_0) $ :\\
+$(g \circ f)'(x_0) = g'(f(x_0)) \cdot f'(x_0)$
+
+\subsection{Théorème 8.2}
+
+Soit $ f : D \to \mathbf{R} $, $ x_0 \in ]a, b[ $, f continue sur $ ]a, b[ $, dérivable sur $ ]a, b[\ \backslash\ \{x_0\}. $. S'il $ \exists l \in \mathbf{R} $ t.q $ \lim_{x\to{x_0}} f'(x) = l $. Alors $ f $ est dérivable en $ x_0 $ et $ f'(x_0) = l $.
+\subsection{Continuité/Dérivabilité de la fonction réciproque}
+\begin{theorem}
+    La réciproque d'une fonction bijective continue est continue sur l'image de tout intervalle
+\end{theorem}
+\begin{theorem}
+    La réciproque d'une fonction bijective dérivable est dérivable sur l'image de tout intervalle tq f'(x) $\neq$ 0
+\end{theorem}
+\[(f^{-1})' = \frac{1}{f'(f^{-1}(y))}  \]
+\subsection{Théorème de Rolle}
+Pour f continuement dérivable\\\\
+Si f(a) = 0 et f(b) = 0, alors il existe u tq f'(u) = 0 (u $\in$ [a, b])
+\subsection{Théorème des accroissements finis}
+Pour f continuement dérivable\\\\
+Il existe u tq f'(u) = $\frac{f(b) - f(a)}{b - a}$ (droite parallèle à la droite reliant f(a) et f(b))
+\subsection{Implication du TAF}
+Réécriture : f(b) = f(a) + f'(u)(b-a) \\\\
+Reformulation : $\lambda \in ]0, 1[$ \\
+f(x + h) = f(x) + f'(x + $\lambda$ h)h
+\subsection{Corollaires du TAF}
+\begin{theorem}
+    Si f'(x) = 0 sur [a, b] alors f est constante
+\end{theorem}
+\begin{theorem}   \
+\begin{itemize}
+    \item f'(x) $\geq$ 0 $\leftrightarrow$ f croissante
+    \item f'(x) $>$ 0 $\rightarrow$ f strictement croissante
+    \item f'(x) $\leq$ 0 $\leftrightarrow$ f décroissante
+    \item f'(x) $<$ 0 $\rightarrow$ f strictement décroissante
+\end{itemize}
+\end{theorem}
+\begin{theorem}
+    Si f(a) $\geq$ 0, et f'(x) $\geq$ 0 sur ]a,b[, alors f(x) $\geq$ sur [a,b]
+\end{theorem}
+\subsection{TAF généralisé} 
+$\frac{f'(u)}{g'(u)} = \frac{f(b) - f(a)}{g(b) - g(a)}$
+\section{Etudes des fonctions}
+
+\subsection{Bernoulli de l'Hospital}
+
+Soit $ f : D(f) \to \mathbf{R} $ et $ g : D(g) \to {R} $ deux fonctions dérivables sur $ ]a, b[ \subset D(f) \cap D(g), a, b \in \mathbf{R}, a < b $ telles que $ \forall x \in ]a, b[, g'(x) \neq 0 $ et :
+\[ \lim_{x\to{a^+}}f(x) = \lim_{x\to{a+}}g(x) = 0\]
+\textbf{Si} \[ \lim_{x\to{a^+}}\frac{f'(x)}{g'(x)} = l \in \mathbf{R} \]
+\textbf{Alors :}
+\[ \lim_{x\to{a^+}}\frac{f(x)}{g(x)} = l \in \mathbf{R} \]
+Remarque : généralisation de BH : on a le théorème analogue pour la lim quand x tend vers a- et quand la lim vaut +- infini 
+
+\subsection{Définitions utiles sur graphe}
+
+$ f : I \to \mathbf{R}. I = [a, b], a, b \in \mathbf{R}, a < b $ et $ I_0 \subset I $ est un sous-intervalle fermé.\\
+
+\subsubsection{Convexité}
+
+$ f $ est convexe sur $ I_0 $ si $ \forall x_1, x_2 \in I_0, x_1 < x_2, \forall \lambda \in [0, 1], f(\lambda \cdot x_1 + (1-\lambda) \cdot x_2) $ (la valeur) $ \leq \lambda \cdot f(x_1) + (1-\lambda) \cdot f(x_2)$ (la droite).\\\\
+Remarque : si $ \lambda = 1 $ on a $x_1$, si $ \lambda = 0 $ on a $ x_2 $ et sinon on a un point entre $ x_1 et x_2 $, donc l'expression balaie tout l'intervalle $ x_1, x_2$.
+
+\paragraph{Critère} Si $f' $ est croissante sur $ I_0 $ ($f'' \geq 0$) alors $f $ est convexe. Ex : $ x^2 $
+
+\subsubsection{Concavité}
+
+$ f $ est concave sur $ I_0 $ si $ \forall x_1, x_2 \in I_0, x_1 < x_2, \forall \lambda \in [0, 1], f(\lambda \cdot x_1 + (1-\lambda) \cdot x_2) $ (la valeur) $ \geq \lambda \cdot f(x_1) + (1-\lambda) \cdot f(x_2)$ (la droite).\\\\
+Remarque : si $ \lambda = 1 $ on a $x_1$, si $ \lambda = 0 $ on a $ x_2 $ et sinon on a un point entre $ x_1 et x_2 $, donc l'expression balaie tout l'intervalle $ x_1, x_2$.
+
+\paragraph{Critère} Si $f' $ est décroissante sur $ I_0 $ ($f'' \leq 0$) alors $f $ est concave. Ex : $ -x^2 $
+
+\subsubsection{Point stationnaire}
+
+$ f $ admet un point stationnaire en $ x_0 \in [a, b] $ si $ f $ est différentiable en $ x_0 $ et $ f'(x_0) = 0$.
+
+\subsubsection{Maximum local}
+
+$ f $ admet un maximum local en $ x_0 \in [a, b] $ si $ f(x) \leq f(x_0) $ pour "$ x $ proche de $ x_0 $". \\
+"" $ \Leftrightarrow  \exists \epsilon > 0, $ tel que $ \forall x \in [a,b] $ tel que $ |x-x_0| < \epsilon $.
+
+\subsubsection{Minimum local}
+
+$ f $ admet un minimum local en $ x_0 \in [a, b] $ si $ f(x) \geq f(x_0) $ pour "$ x $ proche de $ x_0 $". \\
+
+\subsubsection{Maximum (ou minimum) global}
+
+$ f $ admet un maximum global en $ x_0 \in [a, b] $ si $ f(x) \leq (\text{ou} \geq) ( f(x_0), \forall x \in [a,b]$.
+
+\subsubsection{Extremum (global ou local)}
+
+$ f $ admet un minimum (global ou local) ou un minimum (global ou local)
+
+\paragraph{Critère} Si $ f $ admet un extremum local en $ x_0 \in ]a, b[$ et si f est dérivable en $ x_0$, alors $ f'(x_0) = 0$.
+
+\begin{itemize}
+    \item Si $f'(x_0) = 0$ en $ x_0 \in [a, b]$ et si $ f''(x_0) < 0 $ alors $ f $ admet un maximum local en $ x_0 $.
+    \item si $f'(x_0) = 0$ en $ x_0 \in [a, b]$ et $ f''(x_0) > 0$ alors $ f $ admet un minimum local en $ x_0 $.
+
+    \item De façon générale, si $ f'(x_0) = ... = f^{(n)}(x_0) = 0 $, $ f^(n)(x_0) < 0$, n pair $ \Leftrightarrow f $ admet en $ x_0 $ un maximum local.\\
+    \item De façon générale, si $ f'(x_0) = ... = f^{(n)}(x_0) = 0 $, $ f^(n)(x_0) > 0$, n pair $ \Leftrightarrow f $ admet en $ x_0 $ un minimum local.\\
+    \item De façon générale, si $ f''(x_0) = ... = f^{(n-1)}(x_0) = 0 $, $ f^{(n)}(x_0) > 0, f^{(n)}(x_0) \neq 0$, n impair $ \Leftrightarrow f $ admet en $ x_0 $ un point d'inflexion.\\
+\end{itemize}
+
+\subsection{Point d'inflexion}
+
+$ f $ admet un point d'inflexion en $ x_0 \in ]a, b[ $ si $ f $ est différentiable en $ x_0 $ et s'il $ \exists \epsilon > 0 $ tel que le reste $ r(x) = f(x) - f(x_0) - f'(x_0) (x-x_0)$ satisfait $ \forall x \in ]x_0 - \epsilon, x_0 + \epsilon [ \backslash \{x_0\}, r(x)(x-x_0) > 0 $ ou $ < 0$.
+
+\paragraph{Critère} Si $ f $ admet un point d'inflexion en $ x_0 \in ]a, b[$ alors $ f''(x_0) = 0$.
+
+\paragraph{Critère (suffisant)} Si $ f''(x_0) et f'''(x_0) \neq 0 $ en $ x_0 \in ]a, b[$ alors $f $ admet un point d'inflexion en $ x_0 $.   
+\subsection{Asymptote}
+\subsubsection{Asymtpote horizontale}
+$\lim_{x\to \pm \infty}f(x) = \pm b$
+\subsubsection{Asymptote verticale}
+$\lim_{x\to \pm a}f(x) = \pm\infty$
+\subsubsection{Asymptote oblique}
+f(x)$_{\to \pm \infty}$ $\approx$ ax + b\\\\
+a = $\lim_{x\to \pm \infty} = \frac{f(x)}{x}$\\\\
+b = $\lim_{x\to \pm \infty} = f(x) - ax$
+
+\section{Développements limités}
+
+Soit $ f : D \to R,\ a \in I \subset D $, où $ I $ est ouvert. Si pour un $ n \in N $, il existe des nombres $ a_0, ... a_n \in R $ et une fonction $ \epsilon : I \to R $, continue en $ x = a $, tels que $ \forall x \in I $:\\\\
+$ f(x) = \sum_{k=0}^{n} a_k (x-a)^k + (x-a)^n \cdot \epsilon(x)$ avec $ lim_{x\to{a}} \epsilon(x) = 0 $, alors $ f $ admet un développement limité d'ordre $ n $ autour de $ a $.
+
+\paragraph{remarque} si $ f $ admet un développement limité d'ordre $ n $ il est unique car par récurrence on trouve que pour tout $ 0 \leq m \leq n $\\\\
+$a_m = \lim_{x\to{a}} \frac{f(x) - \sum_{k=0}^{n-1} a_k(x-a)^k}{(x-a)^m}$
+
+\paragraph{remarque} l'existence d'un dev limité avec $ n = 0 \Leftrightarrow $ à la continuité de $ f $ en $ a $ et $ n = 1 $ à la différentiabilité de $ f $ en $ a $. 
+
+\subsection{Fonctions de classe $C^k$}
+
+Soit $ I \subset R $ un intervalle.\\
+$C^0(I) := \{ f : D \to R : I \subset D \text{, et f continue sur I} \}$\\
+$C^k(I) := \{ f : D \to R : I \subset D \text{, f est $k$ fois différentiable sur I, et $f^k$ continue sur I} \}$
+
+\subsection{Formule de Taylor}
+
+TODO
+
+\subsection{Remarques}
+
+\section{Intégrations}
+
+\subsection{Intégrale indéfinie}
+
+Soit $ f $ une fonction de classe $ C^0(]a, b[), a < b $. Une primitive de $ f  $ est une fonction qui $ F \in C^1(]a, b[) $ telle que $ F'(x) = f(x) \forall x \in ]a, b[ $. \\\\
+On appelle intégrale indéfinie de $ f $ l'ensemble des primitives de $ f : \int f(x)dx $ (voir cours).
+
+\subsection{Intégrale définie}
+
+Soit $ f $ une fonction de classe $ C^0([a, b]), a < b $.
+
+\begin{itemize}
+    \item Linéarité de l'intégrale.
+    \item $ a < c < b \implies \int_{a}^bf(x)dx = \int_{a}^c f(x)dx + \int_{c}^b f(x)dx$
+    \item $ f(x) \leq g(x) \implies \int_{a}^b f(x)dx \leq \int_{a}^b g(x)dx $
+    \item (on déduit du dernier point que) $ |\int_{a}^bf(x)dx| \leq \int_{a}^bf(x)dx $ 
+\end{itemize}
 
 \end{document}

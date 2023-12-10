@@ -176,4 +176,123 @@ TODO: détailler l'énoncé du théorème des valeurs intérmédiaires
 
 \paragraph{Remarque}: pour les suites définies par récurrence par une fonction continue, ce théorème permet d'identifier les limites eventuelles.
 
+\newpage
+
+\section{Dérivabilité en $x_0$ implique continuité en $x_0$}
+
+Une fonction qui est dérivable en $x_0$ est continue en $x_0$.
+
+\subsection{Démonstration}
+
+\[ \lim_{x\to{x_0}} (f(x) - f(x_0) = \lim_{x\to{x_0}} \frac{f(x) - f(x_0)}{x-{x_0}} \cdot (x-{x_0}) \]
+\[ = \lim_{x\to{x_0}} \frac{f(x) - f(x_0)}{x-{x_0}} \cdot \lim_{x\to{x_0}} (x-{x_0})\]
+\[ = d \cdot 0 \]
+\[ = 0 \]
+
+donc $ \lim_{x\to{x_0}} f(x) = f(x_0) $ donc la fonction est continue.
+\paragraph{Remarque}: la réciproque du théorème est fausse. Par exemple, $ f(x) = |x| $.
+
+\newpage
+
+\section{Continuité et dérivabilité de la fonction réciproque}
+
+Rappel 1 : toute fonction strictement monotone est injective :\\
+$ x_1 < x_2 \implies f(x_1) < (\textbf{ou} >) f(x_2) $, donc $ f(x_1) \neq f(x_2) $ (injectivité).\\\\
+Rappel 2: si une fonction $ f: D(f) \to Im(f) $ est injective, alors elle est bijective et on a la fonction réciproque $ f^{-1} : Im(f) \to D(f) $.\\\\
+
+\subsection{Enoncé}
+
+La réciproque d'une fonction bijective est continue sur l'image de tout intervalle.\\\\
+La réciproque d'une fonction bijective dérivable est dérivable sur l'image de tout intervalle $ I $ tel que $ \forall x \in I,\ f'(x) \neq 0 $.\\\\
+Soit I un intervalle, $ I \neq 0, f : I \to Im(f) \subset \mathbf{R} $ bijective, dérivable, $ \forall x \in I, f'(x) \neq 0 $. Alors :\\
+$ \forall y \in Im(f) = D(f^{-1}),\ f(^{-1})^{'} = \frac{1}{f'(f^{-1}(y)} $\\\\
+
+\subsection{Démonstration}
+
+Soit $ y = f(x) \Leftrightarrow x = f^{-1}(y) $.\\
+On a donc $ \forall y \in D(f^{-1}) = Im(f),\ f(f^{-1}(y)) = y $.\\\\
+Par dérivation en chaîne on obtient :\\\\
+$ \forall y \in Im(f),\ f'(f^{-1}(y)) \cdot (f^{-1})'(y)$ = 1. (dérivée de la fonction y)
+
+\newpage
+
+\section{Théorème de Rolle}
+
+\subsection{Enoncé}
+
+Soit $ f : D \to \mathbf{R}, [a,b] \subset D, a, b \in \mathbf{R}, a < b $, f continue sur $ [a, b] $ et dérivable sur $]a, b[$.\\\\
+Si $ f(a) = f(b) = 0 $, alors il existe $ u \in [a, b] $ tel que $ f'(u) = 0 $.\\\\
+
+\subsection{Théorème des accroissements finis}
+
+\subsection{Enoncé}
+
+Soit $ f : D \to \mathbf{R}, [a,b] \subset D, a, b \in \mathbf{R}, a < b $, f continue sur $ [a, b] $ et dérivable sur $]a, b[$.\\\\
+Alors $ \exists u \in ]a, b[$ t.q:\\\\
+$ f'(u) = \frac{f(b) -f(a)}{b - a}$(*)\\\\
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=8cm]{Images/accroissements.png}
+    \caption{Théorème des accroissements finis}
+\end{figure}
+
+Soit $ g(x) = f(x) - (f(a) + \frac{f(b) - f(a)}{b - a}(x-a))$.\\\\
+On choisit cette fonction pour que quand x = a, on est bien à f(a), quand x = b, on a bien f(b).\\\\
+$ g(a) = f(a) - f(a) = 0 $\\
+$ g(b) = f(b) - f(b) = 0 $\\
+Comme $f$ est continue et dérivable sur $ ]a, b[$, g est aussi continue et dérivable sur ce même intervalle. Par le théorème de Rolle, $ \exists u \in ]a, b[ $ t.q $ g'(u) = 0 = f'(u) - (0 + \frac{f(b) - f(a)}{b - a}) \implies *$.
+
+\newpage
+
+\section{Théorème des accroissements finis généralisés}
+
+\subsection{Enoncé}
+
+Soit $ f : D(f) \to \mathbf{R},\ g : D(g) \to \mathbf{R},\ [a,b] \subset D(f) \cap D(g), a, b \in \mathbf{R}, a < b $, f, g continues sur $ [a, b] $ et dérivables sur $]a, b[$, et $ \forall x \in\ ]a, b[,\ g'(x) \neq 0. $\\\\
+Alors il existe $ u \in ]a, b[ $, tel que :
+\[ \frac{f'(u)}{g'(u)} = \frac{f(b) - f(a)}{g(b) - g(a)}\]
+Remarque : pour g(x) = x c'est le théorème des accroissements finis.\\
+Remarque : $ \forall x \in ]a, b[, g'(x) \neq 0 \implies g(b) \neq g(a)$
+
+\subsection{Démonstration}
+
+"On se bricole une fonction qui a toutes les propriétés requises."\\\\
+On pose :\\
+$ h(x) = f(x) - (f(a) + \frac{f(b) - f(a)}{g(b) - g(a)}(g(x) - g(a)) $\\
+On a $ h(a) = h(b) = 0 $, et on applique le théorème de Rolle.
+
+\newpage
+
+\section{Théorème de la moyenne (généralisé)}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{image.png}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{Enoncé}
+
+Soit $ f: D \to R, [a, b] \subset D, a < b, f $ continue sur $ [a, b] \Leftrightarrow f \in C^0([a, b])$. Alors il existe $ u \in ]a, b[$ (on le sait grâce au TVI, car la fonction est continue) tel que:\\\\
+$ \int_{a}^bf(x)dx = f(u)(b - a) = f(u) \cdot \int_{a}^b 1\cdot dx$\\\\
+($f(u)$ c'est la valeur moyenne de la fonction entre a et b)
+
+\subsection{Enoncé Généralisation}
+
+Soit $ f, g \in C^0([a, b]) $ et $ \forall x \in [a, b], g(x) > 0. $ Alors il existe $ u \in ]a, b[ $ tel que:
+$ \int_{a}^b f(x)\cdot g(x)dx = f(u) \cdot \int_{a}^b g(x)dx$
+
+\subsection{Démonstration}
+
+Soient $ m $ et $ M $ le minimum et le maximum de $ f $ sur $ [a, b] $. Comme $ g(x) > 0 $ alors:
+
+\[ \forall x \in [a, b], m \leq f(x) \geq M \]
+\[ \Leftrightarrow \forall x \in [a, b], m \cdot g(x) \leq f(x) \geq M \cdot g(x) \]
+on applique les propriétés de l'intégrale:
+\[ m \cdot \int_{a}^b g(x)dx \leq \int_{a}^b f(x)g(x)dx \leq M \cdot \int_{a}^b g(x)dx \]
+Et il existe donc $ v \in [m, M] $ tel que:
+\[ \int_{a}^b f(x)g(x)dx = v \cdot \int_{a}^b g(x)dx \]
+v est donc dans l'image de $ f(x) $ et on sait que $ f $ est continue. Par le T.V.I, il existe $ u \in ]a, b[ $ tel que $ v = f(u) $.
+
 \end{document}
