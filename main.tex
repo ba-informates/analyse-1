@@ -431,27 +431,27 @@ $\sum_{k=0}^{\infty}a_k$ converge $\implies \lim_{k\to\infty}a_k = 0$ (voir theo
 \subsubsection{Critère de d'Alembert}
 
 On pose $ q = \lim_{n\to\infty}\ \lvert \frac{a_{n+1}}{a_n} \lvert $.\\\\
-Si $ 0 \leq q < 1 $, alors la série converge.\\
+Si $ 0 \leq q < 1 $, alors la série converge absolument.\\
 Si $ q = 1 $, on ne sait pas.\\
 Si $ q > 1 $, la série diverge.
 
 \subsubsection{Critère de Cauchy}
 
 On pose $ q = \lim_{n\to\infty}\ {\lvert a_{n}\lvert}^{1/n} $.\\\\
-Si $ 0 \leq q < 1 $, alors la série converge.\\
+Si $ 0 \leq q < 1 $, alors la série converge absolument.\\
 Si $ q = 1 $, on ne sait pas.\\
 Si $ q > 1 $, la série diverge.
 
 \subsubsection{Critère du limsup}
 
 On pose $ q = \limsup_{n\to\infty}\ {\lvert a_{n}\lvert}^{1/n} $.\\\\
-Si $ 0 \leq q < 1 $, alors la série converge.\\
+Si $ 0 \leq q < 1 $, alors la série convereg absolument.\\
 Si $ q = 1 $, on ne sait pas.\\
 Si $ q > 1 $, la série diverge.
 
 \subsubsection{Convergence des séries alternées (Leibniz)}
 
-Les séries alternées associées $ \sum_{k=1}^{\infty} (-1)^k \cdot a_k $ convergent si :
+Les séries alternées associées $ \sum_{k=1}^{\infty} (-1)^k \cdot a_k $ convergent absolument si :
 \begin{itemize}
     \item La suite $ |a_k| $ est strictement décroissante.
     \item $ \lim_{n\to\infty} a_k = 0 $
@@ -923,17 +923,37 @@ $a_m = \lim_{x\to{a}} \frac{f(x) - \sum_{k=0}^{n-1} a_k(x-a)^k}{(x-a)^m}$
 
 \paragraph{remarque} l'existence d'un dev limité avec $ n = 0 \Leftrightarrow $ à la continuité de $ f $ en $ a $ et $ n = 1 $ à la différentiabilité de $ f $ en $ a $. 
 
+\subsection{Polynôme de Taylor}
+
+\[ f(x) \approx \sum_{k=0}^n \frac{f^{(k)} (a)}{k!} (x-a)^k\]
+
+\subsection{Série de Taylor}
+
+Série de MacLaurin si $ a = 0 $.\\\\
+\[ f(x) = \sum_{k=0}^{\infty} \frac{f^{(k)} (a)}{k!} (x-a)^k\]
+Valable pour tout $ x $ dans le rayon de convergence.\\
+Attention toutes les fonctions ne peuvent pas s'écrire comme une série de Taylor (par exemple $ e^{-1/x^2}$).
+
+\subsubsection{Série Entière}
+
+Série de la forme $ \sum_{k=0}^{\infty} a_k (x-a)^k $.\\\\
+Si la série converge pour certains $ x $, alors c'est une fonction $ x \to \sum_{k=0}^{\infty} a_k(x-a)^k$ (sinon ce n'est pas une fonction).\\\\
+Rayon de convergence : les valeurs de $ x $ pour lesquels cette série converge.
+
+\paragraph{Critères pour trouver r}
+
+\begin{itemize}
+    \item limsup
+    \item Cauchy
+    \item d'Alembert
+\end{itemize}
+Ils peuvent s'appliquer directement à $ a_k $ (sans le ($(x-a)^k$ grâce à une mise en évidence (parce qu'on fait la racine kième, ou ak/ak+1, etc. donc à chaque fois le k se simplifie))...
+
 \subsection{Fonctions de classe $C^k$}
 
 Soit $ I \subset R $ un intervalle.\\
 $C^0(I) := \{ f : D \to R : I \subset D \text{, et f continue sur I} \}$\\
 $C^k(I) := \{ f : D \to R : I \subset D \text{, f est $k$ fois différentiable sur I, et $f^k$ continue sur I} \}$
-
-\subsection{Formule de Taylor}
-
-TODO
-
-\subsection{Remarques}
 
 \section{Intégrations}
 
@@ -952,5 +972,57 @@ Soit $ f $ une fonction de classe $ C^0([a, b]), a < b $.
     \item $ f(x) \leq g(x) \implies \int_{a}^b f(x)dx \leq \int_{a}^b g(x)dx $
     \item (on déduit du dernier point que) $ |\int_{a}^bf(x)dx| \leq \int_{a}^bf(x)dx $ 
 \end{itemize}
+
+\subsection{Intégration immédiate}
+
+apprendre les primitives
+
+\newpage
+
+\subsection{Intégration par changement de variable}
+
+voir image.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{image.png}
+    \caption{Intégration par changement de variable}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{Intégration par partie}
+
+voir image.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{partie.png}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{Intégration par récurrence}
+
+on cherche à exprimer $ I_{n+1} $ en fonction de $ I_n $.
+
+\subsection{Intégrales impropres}
+
+\subsubsection{Sous-Type 1}
+
+$ f $ est continue sur $ [a,b[, ]a, b]$ ou $ ]a, b[ $.
+\[ \int_{a}^{b-}f(x)dx = \lim_{\beta \to {b-}} \int_{a}^{\beta}f(x)dx \]
+$ a < \beta < b $
+
+\subsubsection{Sous-Type 2}
+
+$ f $ continue sur $ ]-\infty, b], ]a, +\infty[, ]-\infty, +\infty[ $.
+\[ \int_{-\infty}^{b}f(x)dx = \lim_{R \to {-\infty}} \int_{R}^{b}f(x)dx \]
+b > R
+
+\subsubsection{Sous-Type 3}
+
+Combinaison des deux.
+\[ \int_{-\infty}^{b-}f(x)dx = \lim_{{\beta \to {b-}}{R \to {-\infty}}} \int_{R}^{b}f(x)dx \]
+$b > \beta > R > -\infty$ 
 
 \end{document}

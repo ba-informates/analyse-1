@@ -34,29 +34,33 @@ On pose ici $ p = |a - b| \text{ et } \frac{1}{n} = \epsilon $, donc $ a - b = 0
 
 \section{Théorème des gendarmes}
 
+\subsection{Enoncé}
+
 \textbf{Hypothèses} \\
 \[ \lim_{n\to\infty}a_n = \lim_{n\to\infty}b_n = c \]
-\[ a_n < C_n < b_n\ \forall n \geq m \]
+\[ \exists m, \text{s.t } a_n < c_n < b_n\ \forall n \in \mathbf{N} \geq m \]
 \textbf{Alors} \\
-$\lim_{n\to\infty}c_n = c$
-\[ \forall \epsilon > 0,\ \exists n_0 \geq m\ \text{t.q.}\ \forall n \geq n_0\ \text{:} \]
-Démonstration :\\\\
+\[ \lim_{n\to\infty}c_n = c \]
+
+\subsection{Démonstration}
+
 On a $a_n \leq c_n \leq b_n \Leftrightarrow a_n - c \leq c_n - c \leq b_n - c \quad \forall n \geq m$ par l'hypothèse 2 \\
 \begin{itemize}
-    \item $\forall \epsilon > 0,\exists n_1 \in \mathbf{N}$ tel que $\forall n\geq n_1 \lvert a_n - c \lvert < \epsilon$ puisqu'an converge
-    \item $\forall \epsilon > 0,\exists n_2 \in \mathbf{N}$ tel que $\forall n\geq n_2 \lvert b_n - c \lvert < \epsilon$ puisque bn converge
+    \item $\forall \epsilon > 0,\exists n_1 \in \mathbf{N}$ tel que $\forall n\geq n_1 \lvert a_n - c \lvert < \epsilon$ puisque $a_n$ converge
+    \item $\forall \epsilon > 0,\exists n_2 \in \mathbf{N}$ tel que $\forall n\geq n_2 \lvert b_n - c \lvert < \epsilon$ puisque $b_n$ converge
 \end{itemize}
-Posons N = max(m, $n_1, n_2)$, alors : \\\\
-$a_n - c \leq c_n - c \leq b_n - c \quad \forall n \geq N \geq m $\\\\
-$\forall \epsilon > 0,\exists N \geq m$ tel que $\forall n\geq N$
+Posons N = max($m$, $n_1, n_2)$, alors : \\\\
+On a (1) : $a_n - c \leq c_n - c \leq b_n - c \quad \forall n \geq N$\\\\
+On a (2) : $\forall \epsilon > 0, \forall n\geq N$
 \begin{itemize}
     \item $ \lvert a_n - c \lvert < \epsilon \implies -\epsilon \leq a_n - c \leq \epsilon$
     \item $ \lvert b_n - c \lvert < \epsilon \implies -\epsilon \leq b_n - c \leq \epsilon$
 \end{itemize}
-Par la définition de la limitie et de N = max(m, $n_1, n_2)$ \\\\
-$ \implies \forall n\geq N$ \\
-$-\epsilon \leq a_n - c \leq c_n - c \leq b_n - c \leq \epsilon \implies -\epsilon\leq c_n - c \leq \epsilon $ \\\\
-$\implies \forall n \geq N, \lvert c_n - c \lvert < \epsilon \Leftrightarrow \lim_{n\to\infty}c_n = c$
+Par la définition de la limite et de N, on obtient, $\forall n\geq N$ :
+\[ -\epsilon \leq a_n - c \leq c_n - c \leq b_n - c \leq \epsilon  \]
+\[ \implies -\epsilon\leq c_n - c \leq \epsilon \]
+\[ \implies \lvert c_n - c \lvert < \epsilon \]
+\[ \implies \lim_{n\to\infty}c_n = c \]
 
 \newpage
 
@@ -237,7 +241,7 @@ $ f'(u) = \frac{f(b) -f(a)}{b - a}$(*)\\\\
 \end{figure}
 
 Soit $ g(x) = f(x) - (f(a) + \frac{f(b) - f(a)}{b - a}(x-a))$.\\\\
-On choisit cette fonction pour que quand x = a, on est bien à f(a), quand x = b, on a bien f(b).\\\\
+On choisit cette fonction pour que quand x = a ou x = b, on obtienne 0.\\\\
 $ g(a) = f(a) - f(a) = 0 $\\
 $ g(b) = f(b) - f(b) = 0 $\\
 Comme $f$ est continue et dérivable sur $ ]a, b[$, g est aussi continue et dérivable sur ce même intervalle. Par le théorème de Rolle, $ \exists u \in ]a, b[ $ t.q $ g'(u) = 0 = f'(u) - (0 + \frac{f(b) - f(a)}{b - a}) \implies *$.
