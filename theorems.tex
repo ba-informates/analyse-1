@@ -8,8 +8,8 @@
 \usepackage{xcolor}
 
 \title{Analyse I - Théorèmes à l'examen}
-\author{Laura Paraboschi / Simon Lefort }
-\date{BA1 - IN}
+\author{Laura Paraboschi - Simon Lefort }
+\date{BA1 - Janvier 2024}
 
 \begin{document}
 
@@ -68,42 +68,45 @@ Par la définition de la limite et de N, on obtient, $\forall n\geq N$ :
 
 On veut démontrer :
 \[ \sum_{k=0}^{\infty} a_k\ \text{converge} \implies \lim_{n\to\infty} a_n = 0 \]\\
-Si la série est convergente, alors la suite des sommes partielles $ S_n $ est aussi convergente, et est donc une suite de Cauchy.
-\[ S_n = \sum_{k=0}^{n} a_k \]\\
+Une série est dite convergente si la suite des sommes partielles $S_n = \sum_{k=0}^{n} a_k$ converge vers une limite finie lorsque $n$ tend vers l'infini. Ainsi si la série est convergente, $ S_n $ est une suite de Cauchy.
 alors :
 \[ \forall \epsilon > 0,\ \exists\ N\ \text{t.q}\ \forall n, m \geq N \in \mathbf{N},\ \lvert S_n - S_m \lvert\ \leq \epsilon \]
 en particulier, on a :
 \[ \lvert S_{m+1} - S_m \lvert\ \leq \epsilon \]
 \[ \Leftrightarrow \lvert a_{m+1} \lvert\ \leq \epsilon \]\\\\
 Ainsi, on retrouve la définition de limite pour $ a_n $:\\
-\[ \forall\ \epsilon > 0,\ \exists\ n_0 \in \mathbf{N},\ \text{t.q}\ \forall n \geq n_0 + 1,\ |a_n - 0| \leq \epsilon \]\\
+\[ \forall\ \epsilon > 0,\ \exists\ n_0 \in \mathbf{N},\ \text{t.q}\ \forall n \geq n_0 + 1,\ |a_n - 0| \leq \epsilon \]
 \[ \Leftrightarrow \lim_{n\to\infty} a_n = 0 \]
 
 \newpage
 
 \section{Prouver que la limite d'une fonction f donnée est 0}
 
+\subsection{Enoncé}
 On nous donne la suite $ f(x) = 0 $ si $ x \neq 0 $, et $ f(0) = 1 $.\\
-On veut démontrer que $ \lim_{x\to{0}} f(x) = 0 $. (et non pas 1...)\\\\
-\textbf{Définiton de la limite épointée :}\\
-$ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsque $ x \to x^* $ si $ \forall (x_n) $ t.q $ \forall n, x_n \in D \backslash \{x^*\} $ t.q $ \lim_{n\to\infty} x_n = x^*$ , la suite $ y_n = f(x_n) $ converge et $ \lim_{n\to\infty} y_n = l$\\\\
+On veut démontrer que $ \lim_{x\to{0}} f(x) = 0 $. (et non pas 1...)
+\subsection{Définiton de la limite épointée :}
+$ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsque $ x \to x^* $ si $ \forall (x_n) $ t.q $ \forall n, x_n \in D \backslash \{x^*\} $ t.q $ \lim_{n\to\infty} x_n = x^*$ , la suite $ y_n = f(x_n) $ converge et $ \lim_{n\to\infty} y_n = l$
+\subsection{Démonstration}
 Ici notre $ x^* = 0 $, donc on choisit une suite $ x_n $ telle que $ \lim_{n\to\infty} x_n = 0$, et $ x_n \neq 0$ (ex $\frac{1}{n}$). On a donc $ \forall n, y_n = f(x_n) = 0 $ car $x_n \neq 0$.\\\\
 Ainsi, on peut connaître $ \lim_{n\to\infty} y_n = l = \lim_{n\to\infty} 0 = 0$.
 
 \newpage
 \section{Prouver que la limite de $ sin(\frac{1}{x}) $ en 0 n'existe pas}
 
-On nous donne la suite $ f(x) = sin(\frac{1}{x}) $.\\
-On veut démontrer que $ \lim_{x\to{0}} f(x) $ n'existe pas\\\\
-\textbf{Définiton de la limite épointée :}\\
-$ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsque $ x \to x^* $ si $ \forall (x_n) $ t.q $ \forall n, x_n \in D \backslash \{x^*\} $ t.q $ \lim_{n\to\infty} x_n = x^*$, la suite $ y_n = f(x_n) $ converge et $ \lim_{n\to\infty} y_n = l$\\\\
+\subsection{Enoncé}
+On nous donne la fonction $ f(x) = sin(\frac{1}{x}) $.\\
+On veut démontrer que $ \lim_{x\to{0}} f(x) $ n'existe pas
+\subsection{Définiton de la limite épointée :}
+$ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsque $ x \to x^* $ si $ \forall (x_n) $ t.q $ \forall n, x_n \in D \backslash \{x^*\} $ t.q $ \lim_{n\to\infty} x_n = x^*$, la suite $ y_n = f(x_n) $ converge et $ \lim_{n\to\infty} y_n = l$
+\subsection{Démonstration}
 Ici notre $ x^* = 0 $. 
-\subsection{Méthode 1}
+\subsubsection{Méthode 1}
 On doit trouver une suite $ x_n $ t.q $ \lim_{n\to\infty}x_n= 0 $ et $ x_n \neq 0$, mais t.q $ y_n = f(x_n) $ diverge.\\\\
-On pose $ x_n = \frac{1}{\frac{\pi}{2} + n \cdot \pi}$. On a $ y_n = sin(\frac{\pi}{2} + n \cdot \pi) = (-1)^n $ qui ne converge pas.
-\subsection{Méthode 2}
+On pose $ x_n = \frac{1}{\frac{\pi}{2} + n \cdot \pi}$. On a $ y_n = sin(\frac{\pi}{2} + f+n \cdot \pi) = (-1)^n $ qui ne converge pas.
+\subsubsection{Méthode 2}
 On trouve deux suites $x_n$, $z_n$ telle que $y_n$ diverge : \\\\
-$x_n = \frac{1}{2\pi n}$ et $z_n = \frac{1}{\frac{\pi}{2} + n2\pi}$ \\\\
+$x_n = \frac{1}{2\pi n}$ et $z_n = \frac{1}{\frac{\pi}{2} + 2\pi{n}}$ \\\\
 On a $x_n = 0,\ z_n = 0,\ \lim_{n\to\infty}x_n = 0\ et \lim_{n\to\infty}z_n = 0$ \\\\
 $y_n = f(x_n) = sin(2\pi n) = 0,\ y_{n2} = f(z_n) = sin(\frac{\pi}{2} + 2\pi n) = 1$ \\\\
 donc $\lim_{n\to\infty}y_n = 0$ mais $\lim_{n\to\infty}y_{n2} = 1$
@@ -114,7 +117,7 @@ donc $\lim_{n\to\infty}y_n = 0$ mais $\lim_{n\to\infty}y_{n2} = 1$
 \subsection{Enoncé}
 
 Soient $ f, g, h: D \to \mathbf{R}, D \subset \mathbf{R}, D \neq 0 $\\
-Soit $ x^* \in \mathbf{R} $ ou $ x^* \in \{+\infty, -\infty\}$, t.q $ x^* = \lim_{n\to\infty} x_n $ pour une suite $ (x_n), x_n \in D, x_n \neq x^* $.\\\\
+Soit $ x^* \in \mathbf{R} $ ou $ x^* \in \{-\infty, +\infty\}$, t.q $ x^* = \lim_{n\to\infty} x_n $ pour une suite $ (x_n), x_n \in D, x_n \neq x^* $.\\\\
 Supposons :
 
 \paragraph{i)}
@@ -143,7 +146,7 @@ Alors :
 
 \subsection{Démonstration}
 
-$ \epsilon $ est donné par i).\\
+$ \epsilon $ est déterminé en fonction du cas dans i).\\
 Soit une suite $ (x_n), x_n \in D, x_n \neq x^* $ et $ \lim_{n\to\infty} x_n = x^* $.\\\\
 Par définition de $ \lim_{n\to\infty} x_n = x^*, \exists n_0 $, t.q, $ \forall n \geq n_0, $ :
 \begin{itemize}
@@ -176,13 +179,13 @@ Soit $ a, b \in \mathbf{R}, a < b $. Alors toute fonction continue $ f : [a, b] 
 La fonction $ g(x) := x - f(x) $ est continue sur $ [a, b] $ car $ f $ continue sur $ [a, b] $.\\
 $ g(a) \leq 0 $ et $ g(b) \geq 0 $ et par le théorème des valeurs intermédiaires $ \exists x \in [a, b] $ t.q $ g(x) = 0 \Leftrightarrow f(x) = x $.
 
-TODO: détailler l'énoncé du théorème des valeurs intérmédiaires
-
-\paragraph{Remarque}: pour les suites définies par récurrence par une fonction continue, ce théorème permet d'identifier les limites eventuelles.
+\paragraph{Remarque}: pour les suites définies par récurrence par une fonction continue, ce théorème permet d'identifier les limites éventuelles.
 
 \newpage
 
 \section{Dérivabilité en $x_0$ implique continuité en $x_0$}
+
+\subsection{Enoncé}
 
 Une fonction qui est dérivable en $x_0$ est continue en $x_0$.
 
@@ -200,23 +203,29 @@ donc $ \lim_{x\to{x_0}} f(x) = f(x_0) $ donc la fonction est continue.
 
 \section{Continuité et dérivabilité de la fonction réciproque}
 
-Rappel 1 : toute fonction strictement monotone est injective :\\
-$ x_1 < x_2 \implies f(x_1) < (\textbf{ou} >) f(x_2) $, donc $ f(x_1) \neq f(x_2) $ (injectivité).\\\\
-Rappel 2: si une fonction $ f: D(f) \to Im(f) $ est injective, alors elle est bijective et on a la fonction réciproque $ f^{-1} : Im(f) \to D(f) $.\\\\
+\subsection{Quelques rappels pour l'intuition}
+
+
+\begin{itemize}
+    \item toute fonction strictement monotone est injective :\\
+$ x_1 < x_2 \implies f(x_1) < (\textbf{ou} >) f(x_2) $, donc $ f(x_1) \neq f(x_2) $ (injectivité).
+    \item si une fonction $ f: D(f) \to Im(f) $ est injective, alors elle est bijective et on a la fonction réciproque $ f^{-1} : Im(f) \to D(f) $.
+\end{itemize}
 
 \subsection{Enoncé}
 
-La réciproque d'une fonction bijective est continue sur l'image de tout intervalle.\\\\
+La réciproque d'une fonction bijective continue est continue sur l'image de tout intervalle.\\\\
 La réciproque d'une fonction bijective dérivable est dérivable sur l'image de tout intervalle $ I $ tel que $ \forall x \in I,\ f'(x) \neq 0 $.\\\\
-Soit I un intervalle, $ I \neq 0, f : I \to Im(f) \subset \mathbf{R} $ bijective, dérivable, $ \forall x \in I, f'(x) \neq 0 $. Alors :\\
-$ \forall y \in Im(f) = D(f^{-1}),\ f(^{-1})^{'} = \frac{1}{f'(f^{-1}(y)} $\\\\
+Soit I un intervalle, $ I \neq 0, f : I \to Im(f) \subset \mathbf{R} $ bijective, dérivable, $ \forall x \in I, f'(x) \neq 0 $. Alors :
+\[ \forall y \in Im(f) = D(f^{-1}),\ f(^{-1})^{'} = \frac{1}{f'(f^{-1}(y)} \]
 
 \subsection{Démonstration}
 
 Soit $ y = f(x) \Leftrightarrow x = f^{-1}(y) $.\\
 On a donc $ \forall y \in D(f^{-1}) = Im(f),\ f(f^{-1}(y)) = y $.\\\\
-Par dérivation en chaîne on obtient :\\\\
-$ \forall y \in Im(f),\ f'(f^{-1}(y)) \cdot (f^{-1})'(y)$ = 1. (dérivée de la fonction y)
+Par dérivation en chaîne on obtient, $ \forall y \in Im(f) $ :
+\[ f'(f^{-1}(y)) \cdot (f^{-1})'(y) = 1. \]
+\[ \Leftrightarrow \ (f^{-1})'(y) = \frac{1}{f'(f^{-1}(y))}. \]
 
 \newpage
 
