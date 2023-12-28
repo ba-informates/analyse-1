@@ -37,11 +37,12 @@ Alors:
 \[ \lim_{n\to\infty}a_n = b\ \Leftrightarrow \forall \epsilon > 0,\ \exists n_2 \in \mathbf{N^*},\ \text{t.q.}\ \forall n > n_2,\ \lvert a_n - b \lvert\ \leq \frac{\epsilon}{2}\ \textbf{(2)}\]\\
 Soit $ n_0 := max(n_1, n_2) $.\\
 $ \forall n \geq n_0 $, on a à la fois \textbf{(1)} et \textbf{(2)}.\\
-Puisque $ a - b = (a - a_n) + (a_n - b) $, alors $ \forall n \geq n_0 $:\\
-\[ 0\ \leq \lvert a - b \lvert\ \leq \lvert a - a_n \lvert\ +\ \lvert a_n - b \lvert\ \leq \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \]
-On a donc que $ \forall \epsilon > 0,\ 0 \leq \lvert a - b \lvert\ \leq \epsilon $ par l'axiome d'Archimède.\\\\
-En effet, comme $ |a-b| \in \mathbf{R} $, et $ \mathbf{R} $ est archimédien, alors l'axiome d'Archimède affirme que si $ p \in R\ \text{et}\ \forall n \in \mathbf{N*},\ 0 \leq p \leq \frac{1}{n} \implies p = 0 $. \\\\
-On pose ici $ p = |a - b| \text{ et } \frac{1}{n} = \epsilon $, donc $ a - b = 0 $, donc $ a = b $ ce qui contredit notre supposition de départ.
+Puisque $ a - b = (a - a_n) + (a_n - b) $, alors $\forall \epsilon > 0, \forall n \geq n_0 $ :\\
+\[ 0\ \leq \lvert a - b \lvert\ \leq \lvert a - a_n \lvert\ +\ \lvert b - a_n \lvert\ \leq \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \]
+\[ \Leftrightarrow 0 \leq |a-b| \leq \epsilon \]
+\textit{petite note : $ |a_n - b| = |b - a_n|, $ propriétés de la valeur absolue.}\\\\
+L'axiome d'Archimède nous permet d'affirmer que si $ p \in R\ \text{et}\ \forall \epsilon > 0 \in \mathbf{R},\ 0 \leq p \leq \epsilon \implies p = 0 $. \\\\
+Ainsi, $ a - b = 0 $, donc $ a = b $ ce qui contredit notre supposition de départ.
 
 \newpage
 
@@ -98,8 +99,15 @@ Ainsi, on retrouve la définition de limite pour $ a_n $:\\
 \subsection{Enoncé}
 On nous donne la suite $ f(x) = 0 $ si $ x \neq 0 $, et $ f(0) = 1 $.\\
 On veut démontrer que $ \lim_{x\to{0}} f(x) = 0 $. (et non pas 1...)
-\subsection{Définiton de la limite épointée :}
-$ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsque $ x \to x^* $ si $ \forall (x_n) $ t.q $ \forall n, x_n \in D \backslash \{x^*\} $ t.q $ \lim_{n\to\infty} x_n = x^*$ , la suite $ y_n = f(x_n) $ converge et $ \lim_{n\to\infty} y_n = l$
+\subsection{Définition de la limite épointée :}
+$ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsque $ x \to x^* $ si :\\
+$ \forall (x_n) $ t.q
+\begin{itemize}
+    \item $\forall n, x_n \in D \backslash \{x^*\} $
+    \item $ \lim_{n\to\infty} x_n = x^*$
+\end{itemize}
+alors la suite $ y_n = f(x_n) $ converge et $ \lim_{n\to\infty} y_n = l$
+
 \subsection{Démonstration}
 Ici notre $ x^* = 0 $, donc on choisit une suite $ x_n $ telle que $ \lim_{n\to\infty} x_n = 0$, et $ x_n \neq 0$ (ex $\frac{1}{n}$). On a donc $ \forall n, y_n = f(x_n) = 0 $ car $x_n \neq 0$.\\\\
 Ainsi, on peut connaître $ \lim_{n\to\infty} y_n = l = \lim_{n\to\infty} 0 = 0$.
@@ -110,8 +118,14 @@ Ainsi, on peut connaître $ \lim_{n\to\infty} y_n = l = \lim_{n\to\infty} 0 = 0$
 \subsection{Enoncé}
 On nous donne la fonction $ f(x) = sin(\frac{1}{x}) $.\\
 On veut démontrer que $ \lim_{x\to{0}} f(x) $ n'existe pas
-\subsection{Définiton de la limite épointée :}
-$ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsque $ x \to x^* $ si $ \forall (x_n) $ t.q $ \forall n, x_n \in D \backslash \{x^*\} $ t.q $ \lim_{n\to\infty} x_n = x^*$, la suite $ y_n = f(x_n) $ converge et $ \lim_{n\to\infty} y_n = l$
+\subsection{Définition de la limite épointée :}
+$ f : D \to \mathbf{R} $ admet pour limite épointée $ l \in \mathbf{R} $ lorsque $ x \to x^* $ si :\\
+$ \forall (x_n) $ t.q
+\begin{itemize}
+    \item $\forall n, x_n \in D \backslash \{x^*\} $
+    \item $ \lim_{n\to\infty} x_n = x^*$
+\end{itemize}
+alors la suite $ y_n = f(x_n) $ converge et $ \lim_{n\to\infty} y_n = l$
 \subsection{Démonstration}
 Ici notre $ x^* = 0 $. 
 \subsubsection{Méthode 1}
@@ -129,7 +143,7 @@ donc $\lim_{n\to\infty}y_n = 0$ mais $\lim_{n\to\infty}y_{n2} = 1$
 
 \subsection{Enoncé}
 
-Soient $ f, g, h: D \to \mathbf{R}, D \subset \mathbf{R}, D \neq 0 $\\
+Soient $ f, g, h: D \to \mathbf{R}, D \subset \mathbf{R}, D \neq \emptyset $\\
 Soit $ x^* \in \mathbf{R} $ ou $ x^* \in \{-\infty, +\infty\}$, t.q $ x^* = \lim_{n\to\infty} x_n $ pour une suite $ (x_n), x_n \in D, x_n \neq x^* $.\\\\
 Supposons :
 
@@ -152,7 +166,7 @@ $ \exists \epsilon < 0 $ t.q $ \forall x \in D $, $ x < \epsilon \implies f(x) \
 
 \paragraph{ii)}
 
-$ \lim_{x\to{x^*}} f(x) = \lim_{x\to{x^*}} g(x) $\\\\
+$ \lim_{x\to{x^*}} f(x) = \lim_{x\to{x^*}} g(x) = l \in \mathbf{R} $\\\\
 Alors : 
 
 \[ \lim_{x\to{x^*}} h(x) = l \]
@@ -204,8 +218,9 @@ Une fonction qui est dérivable en $x_0$ est continue en $x_0$.
 
 \subsection{Démonstration}
 
-\[ \lim_{x\to{x_0}} (f(x) - f(x_0) = \lim_{x\to{x_0}} \frac{f(x) - f(x_0)}{x-{x_0}} \cdot (x-{x_0}) \]
-\[ = \lim_{x\to{x_0}} \frac{f(x) - f(x_0)}{x-{x_0}} \cdot \lim_{x\to{x_0}} (x-{x_0})\]
+\[ \lim_{x\to{x_0}} (f(x) - f(x_0)) \]
+\[ = \lim_{x\to{x_0}} \frac{f(x) - f(x_0)}{x-{x_0}} \cdot (x-{x_0}) \] (car limite épointée $ x \neq x_0 $)
+\[ = \lim_{x\to{x_0}} \frac{f(x) - f(x_0)}{x-{x_0}} \cdot \lim_{x\to{x_0}} (x-{x_0})\] (en supposant que les deux limites existent séparément)
 \[ = d \cdot 0 \]
 \[ = 0 \]
 
@@ -228,7 +243,7 @@ $ x_1 < x_2 \implies f(x_1) < (\textbf{ou} >) f(x_2) $, donc $ f(x_1) \neq f(x_2
 \subsection{Enoncé}
 
 La réciproque d'une fonction bijective continue est continue sur l'image de tout intervalle.\\\\
-La réciproque d'une fonction bijective dérivable est dérivable sur l'image de tout intervalle $ I $ tel que $ \forall x \in I,\ f'(x) \neq 0 $.\\\\
+La réciproque d'une fonction bijective  est dérivable sur l'image de tout intervalle $ I $ tel que $ \forall x \in I,\ f'(x) \neq 0 $ \textit{condition importante, voir $ f(x) = x^3 $}.\\\\
 Soit I un intervalle, $ I \neq 0, f : I \to Im(f) \subset \mathbf{R} $ bijective, dérivable, $ \forall x \in I, f'(x) \neq 0 $. Alors :
 \[ \forall y \in Im(f) = D(f^{-1}),\ f(^{-1})^{'} = \frac{1}{f'(f^{-1}(y)} \]
 
@@ -247,7 +262,7 @@ Par dérivation en chaîne on obtient, $ \forall y \in Im(f) $ :
 \subsection{Rappel : Théorème de Rolle}
 
 Soit $ f : D \to \mathbf{R}, [a,b] \subset D, a, b \in \mathbf{R}, a < b $, f continue sur $ [a, b] $ et dérivable sur $]a, b[$.\\\\
-Si $ f(a) = f(b) = 0 $, alors il existe $ u \in [a, b] $ tel que $ f'(u) = 0 $.
+Si $ f(a) = f(b) = 0 $, alors il existe $ u \in ]a, b[ $ tel que $ f'(u) = 0 $.
 
 \subsection{Enoncé}
 
