@@ -243,7 +243,7 @@ $ x_1 < x_2 \implies f(x_1) < (\textbf{ou} >) f(x_2) $, donc $ f(x_1) \neq f(x_2
 \subsection{Enoncé}
 
 La réciproque d'une fonction bijective continue est continue sur l'image de tout intervalle.\\\\
-La réciproque d'une fonction bijective  est dérivable sur l'image de tout intervalle $ I $ tel que $ \forall x \in I,\ f'(x) \neq 0 $ \textit{condition importante, voir $ f(x) = x^3 $}.\\\\
+La réciproque d'une fonction bijective dérivable est dérivable sur l'image de tout intervalle $ I $ tel que $ \forall x \in I,\ f'(x) \neq 0 $ \textit{condition importante, voir $ f(x) = x^3 $}.\\\\
 Soit I un intervalle, $ I \neq 0, f : I \to Im(f) \subset \mathbf{R} $ bijective, dérivable, $ \forall x \in I, f'(x) \neq 0 $. Alors :
 \[ \forall y \in Im(f) = D(f^{-1}),\ f(^{-1})^{'} = \frac{1}{f'(f^{-1}(y)} \]
 
@@ -320,10 +320,18 @@ On a $ h(a) = h(b) = 0 $, et on applique le théorème de Rolle.
 
 \subsection{Enoncé}
 
-Soit $ f: D \to R, [a, b] \subset D, a < b, f $ continue sur $ [a, b] \Leftrightarrow f \in C^0([a, b])$. Alors il existe $ u \in ]a, b[$ (on le sait grâce au TVI, car la fonction est continue) tel que:\\\\
-$ \int_{a}^bf(x)dx = f(u)(b - a) = f(u) \cdot \int_{a}^b 1\cdot dx$\\\\
-Remarque : $f(u)$ est la valeur moyenne de la fonction entre a et b
+Soient 
 
+\begin{itemize}
+    \item $ f: D \to R $
+    \item $ a < b \in \mathbf{R} $
+    \item $ [a, b] \subset D $
+    \item $ f $ continue sur $ [a, b]\ (\Leftrightarrow f \in C^0([a, b])) $
+\end{itemize}
+Alors, grâce au T.V.I (voir schéma), on sait qu'il existe $ u \in ]a, b[$ tel que:
+\[ \int_{a}^bf(x)dx = f(u)(b - a) = f(u) \cdot \int_{a}^b 1\cdot dx \]
+Remarque : $f(u)$ est la valeur moyenne de la fonction entre a et b
+\[ f(u) = \frac{1}{b-a} \cdot \int_{a}^{b} f(x)dx \]
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.8\linewidth]{Images/moyenne.png}
@@ -333,19 +341,26 @@ Remarque : $f(u)$ est la valeur moyenne de la fonction entre a et b
 
 \subsection{Enoncé (Généralisation)}
 
-Soit $ f, g \in C^0([a, b]) $ et $ \forall x \in [a, b], g(x) > 0. $ Alors il existe $ u \in ]a, b[ $ tel que:
-$ \int_{a}^b f(x)\cdot g(x)dx = f(u) \cdot \int_{a}^b g(x)dx$
+Soient :
+\begin{itemize}
+    \item $ f, g $ continues sur $ [a, b]\ (\Leftrightarrow \in C^0([a, b]) $
+    \item $ \forall x \in [a, b],\  g(x) > 0 $
+\end{itemize}
+Alors il existe $ u \in ]a, b[ $ tel que:
+\[ \int_{a}^b f(x)\cdot g(x)dx = f(u) \cdot \int_{a}^b g(x)dx \]
+
+\newpage
 
 \subsection{Démonstration}
 
 Soient $ m $ et $ M $ le minimum et le maximum de $ f $ sur $ [a, b] $. Comme $ g(x) > 0 $ alors:
 
-\[ \forall x \in [a, b], m \leq f(x) \geq M \]
-\[ \Leftrightarrow \forall x \in [a, b], m \cdot g(x) \leq f(x) \geq M \cdot g(x) \]
+\[ \forall x \in [a, b],\ m \leq f(x) \geq M \]
+\[ \Leftrightarrow \forall x \in [a, b],\ m \cdot g(x) \leq f(x) \geq M \cdot g(x) \]
 on applique les propriétés de l'intégrale:
 \[ m \cdot \int_{a}^b g(x)dx \leq \int_{a}^b f(x)g(x)dx \leq M \cdot \int_{a}^b g(x)dx \]
 Et il existe donc $ v \in [m, M] $ tel que:
 \[ \int_{a}^b f(x)g(x)dx = v \cdot \int_{a}^b g(x)dx \]
-v est donc dans l'image de $ f(x) $ et on sait que $ f $ est continue. Par le T.V.I, il existe $ u \in ]a, b[ $ tel que $ v = f(u) $.
+$ v $ serait donc dans l'image de $ f(x) $. Or, on sait que $ f $ est continue, donc le T.V.I nous permet d'affirmer qu'il existe $ u \in ]a, b[ $ tel que $ v = f(u) $.
 
 \end{document}
