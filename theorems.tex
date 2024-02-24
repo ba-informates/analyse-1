@@ -22,6 +22,24 @@ Nous avons gardé la formulation utilisée dans les vidéos du professeur Peter 
 
 \newpage
 
+\section{Mémos par théorèmes}
+
+\textbf{unicité de la limite} $ \rightarrow $ par l'absurde, poser $ \frac{\epsilon}{2} N_{max}, a - b = (a - a_n) + (a_n - b)$\\\\
+\textbf{théorème des gendarmes} $ \rightarrow $ poser encadrement, $ N_{max} $\\\\
+\textbf{si une série converge, la suite des termes tend vers 0} $ \rightarrow $ suite des sommes partielles est de Cauchy\\\\
+\textbf{prouver que la limite de f donnée est 0} $ \rightarrow $ rappeler la définition de la limite épointée et l'appliquer\\\\
+\textbf{prouver que la lim de sin(1/x) en 0 n'existe pas} $ \rightarrow $ choisir deux suites $ \frac{1}{2n\pi} $ et $ \frac{1}{2n\pi + \frac{\pi}{2}}$ OU $ \frac{1}{n\pi + \frac{pi}{2}}$\\\\
+\textbf{théorème des gendarmes pour les fonctions} $ \rightarrow $ deux suppositions, disjonctions de cas sur $ x^* $ jusqu'à redirection vers le théorème des gendarmes pour les suites\\\\
+\textbf{théorème du point fixe} $ \rightarrow $ poser $ x - f(x) $\\\\
+\textbf{dérivabilité implique continuité} poser $ \lim_{x\to{x_0}} (f(x) - f(x_0)) $, multiplier par $(x - x_0)$\\\\
+\textbf{continuité et dérivabilité de $ f $ bijective implique $f^{-1}$ dérivable} utiliser la dérivation en chaîne et penser à $ f^{-1'}(x) \neq 0 $\\\\
+\textbf{théorème des accroissements finis (TAF)} penser à Rolle et poser $g(x) = f(x) - (f(a) + \frac{f(b) - f(a)}{b - a}(x-a))$.\\\\
+\textbf{TAF généralisé} penser à Rolle et poser $ h(x) = f(x) - (f(a) + \frac{f(b) - f(a)}{g(b) - g(a)}(g(x) - g(a)) $.\\\\
+\textbf{théorème de la moyenne} penser au TVI et $ f(u) = \frac{1}{b-a} \cdot \int_{a}^{b} f(x)dx $\\\\
+\textbf{théorème de la moyenne généralisé} penser au TVI et $ \int_{a}^b f(x)\cdot g(x)dx = f(u) \cdot \int_{a}^b g(x)dx $ + borner min max de f
+
+\newpage
+
 \section{Unicité de la limite d'une suite}
 
 \subsection{Enoncé}
@@ -38,9 +56,9 @@ Alors:
 Soit $ n_0 := max(n_1, n_2) $.\\
 $ \forall n \geq n_0 $, on a à la fois \textbf{(1)} et \textbf{(2)}.\\
 Puisque $ a - b = (a - a_n) + (a_n - b) $, alors $\forall \epsilon > 0, \forall n \geq n_0 $ :\\
-\[ 0\ \leq \lvert a - b \lvert\ \leq \lvert a - a_n \lvert\ +\ \lvert b - a_n \lvert\ \leq \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \]
+\[ 0\ \leq \lvert a - b \lvert\ \leq \lvert a_n - a \lvert\ +\ \lvert a_n - b \lvert\ \leq \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \]
 \[ \Leftrightarrow 0 \leq |a-b| \leq \epsilon \]
-\textit{petite note : $ |a_n - b| = |b - a_n|, $ propriétés de la valeur absolue.}\\\\
+\textit{petite note : $ |a - a_n| = |a_n - a|, $ propriétés de la valeur absolue.}\\\\
 L'axiome d'Archimède nous permet d'affirmer que si $ p \in R\ \text{et}\ \forall \epsilon > 0 \in \mathbf{R},\ 0 \leq p \leq \epsilon \implies p = 0 $. \\\\
 Ainsi, $ a - b = 0 $, donc $ a = b $ ce qui contredit notre supposition de départ.
 
@@ -144,7 +162,7 @@ donc $\lim_{n\to\infty}y_n = 0$ mais $\lim_{n\to\infty}y_{n2} = 1$
 \subsection{Enoncé}
 
 Soient $ f, g, h: D \to \mathbf{R}, D \subset \mathbf{R}, D \neq \emptyset $\\
-Soit $ x^* \in \mathbf{R} $ ou $ x^* \in \{-\infty, +\infty\}$, t.q $ x^* = \lim_{n\to\infty} x_n $ pour une suite $ (x_n), x_n \in D, x_n \neq x^* $.\\\\
+Soit $ x^* \in \mathbf{R} $ ou $ x^* \in \{-\infty, +\infty\}$\\\\
 Supposons :
 
 \paragraph{i)}
@@ -152,24 +170,24 @@ Supposons :
 \begin{itemize}
     \item cas $ x^* \in \mathbf{R} $ :
 
-$ \exists \epsilon > 0 $ t.q $ \forall x \in D $, $ |x-x^*| \leq \epsilon \implies f(x) \leq h(x) \leq g(x) $
+$ \exists \epsilon > 0 $ t.q $ \forall x \in D $, $ |x-x^*| \leq \epsilon \implies f(x) \leq g(x) \leq h(x) $
 
 \item cas $ x^* = +\infty $ :
 
-$ \exists \epsilon > 0 $ t.q $ \forall x \in D $, $ x > \epsilon \implies f(x) \leq h(x) \leq g(x) $
+$ \exists \epsilon > 0 $ t.q $ \forall x \in D $, $ x > \epsilon \implies f(x) \leq g(x) \leq h(x) $
 
 \item cas $ x^* = -\infty $ :
 
-$ \exists \epsilon < 0 $ t.q $ \forall x \in D $, $ x < \epsilon \implies f(x) \leq h(x) \leq g(x) $
+$ \exists \epsilon < 0 $ t.q $ \forall x \in D $, $ x < \epsilon \implies f(x) \leq g(x) \leq h(x) $
 
 \end{itemize}
 
 \paragraph{ii)}
 
-$ \lim_{x\to{x^*}} f(x) = \lim_{x\to{x^*}} g(x) = l \in \mathbf{R} $\\\\
+$ \lim_{x\to{x^*}} f(x) = \lim_{x\to{x^*}} h(x) = l \in \mathbf{R} $\\\\
 Alors : 
 
-\[ \lim_{x\to{x^*}} h(x) = l \]
+\[ \lim_{x\to{x^*}} g(x) = l \]
 
 \subsection{Démonstration}
 
@@ -177,17 +195,21 @@ $ \epsilon $ est déterminé en fonction du cas dans i).\\
 Soit une suite $ (x_n), x_n \in D, x_n \neq x^* $ et $ \lim_{n\to\infty} x_n = x^* $.\\\\
 Par définition de $ \lim_{n\to\infty} x_n = x^*, \exists n_0 $, t.q, $ \forall n \geq n_0, $ :
 \begin{itemize}
-    \item $ |x_n - x^*| \geq \epsilon $ (cas où $ x^* \in \mathbf{R} $)
+    \item $ |x_n - x^*| \leq \epsilon $ (cas où $ x^* \in \mathbf{R} $)
     \item $ x_n \geq \epsilon $ (cas où $ x^* = +\infty)$
     \item $ x_n \leq \epsilon $ (cas où $ x^* = -\infty)$
 \end{itemize}
 donc $ \forall n \geq n_0 $:
-\[ f(x_n) \leq h(x_n) \leq g(x_n) \]
-et par ii), $ \lim_{n\to\infty} f(x_n) = l $ et $ \lim_{n\to\infty} g(x_n) = l $, donc $ \lim_{n\to\infty} h(x_n) = l $ (par le théorème des gendarmes pour les suites).
+\[ f(x_n) \leq g(x_n) \leq h(x_n) \]
+et par ii), $ \lim_{n\to\infty} f(x_n) = l $ et $ \lim_{n\to\infty} h(x_n) = l $, donc $ \lim_{n\to\infty} g(x_n) = l $ (par le théorème des gendarmes pour les suites).
 
 \newpage
 
 \section{Théorème du point fixe}
+
+\subsection{Rappel : TVI}
+
+Soit $ a, b \in \mathbf{R},\ a < b $. Toute fonction continue $ f : [a, b] \to \mathbf{R} $ prend (au moins une fois) toutes les valeurs entre f(a) et f(b).
 
 \subsection{Enoncé}
 
@@ -203,8 +225,12 @@ Soit $ a, b \in \mathbf{R}, a < b $. Alors toute fonction continue $ f : [a, b] 
 
 \subsection{Démonstration}
 
-La fonction $ g(x) := x - f(x) $ est continue sur $ [a, b] $ car $ f $ continue sur $ [a, b] $.\\
-$ g(a) \leq 0 $ et $ g(b) \geq 0 $ et par le théorème des valeurs intermédiaires $ \exists x \in [a, b] $ t.q $ g(x) = 0 \Leftrightarrow f(x) = x $.
+Soit $ m $ le minimum de $ f(x) $. Comme $ Im(f) \subset [a, b] $, alors m $ \geq a $.\\
+Soit $ M $ le maximum de $ f(x) $. Comme $ Im(f) \subset [a, b] $, alors M $ \leq b $.\\\\
+La fonction $ g(x) := x - f(x) $ est continue sur $ [a, b] $ car $ f $ continue sur $ [a, b] $.
+\[ g(a) = a - f(a) \leq a - a \leq 0 \]
+\[ g(b) = b - f(b) \geq b - b \geq 0 \]
+Par le théorème des valeurs intermédiaires $ \exists u \in [a, b] $ t.q $ g(u) = 0 \Leftrightarrow f(u) = u $.
 
 \paragraph{Remarque}: pour les suites définies par récurrence par une fonction continue, ce théorème permet d'identifier les limites éventuelles.
 
@@ -243,9 +269,9 @@ $ x_1 < x_2 \implies f(x_1) < (\textbf{ou} >) f(x_2) $, donc $ f(x_1) \neq f(x_2
 \subsection{Enoncé}
 
 La réciproque d'une fonction bijective continue est continue sur l'image de tout intervalle.\\\\
-La réciproque d'une fonction bijective dérivable est dérivable sur l'image de tout intervalle $ I $ tel que $ \forall x \in I,\ f'(x) \neq 0 $ \textit{condition importante, voir $ f(x) = x^3 $}.\\\\
+La réciproque d'une fonction bijective dérivable est dérivable sur l'image de tout intervalle $ I $ \textbf{tel que $ \forall x \in I,\ f'(x) \neq 0 $} \textit{condition importante, voir $ f(x) = x^3 $}.\\\\
 Soit I un intervalle, $ I \neq 0, f : I \to Im(f) \subset \mathbf{R} $ bijective, dérivable, $ \forall x \in I, f'(x) \neq 0 $. Alors :
-\[ \forall y \in Im(f) = D(f^{-1}),\ f(^{-1})^{'} = \frac{1}{f'(f^{-1}(y)} \]
+\[ \forall y \in Im(f) = D(f^{-1}),\ f(^{-1})^{'}(y) = \frac{1}{f'(f^{-1}(y)} \]
 
 \subsection{Démonstration}
 
@@ -355,12 +381,12 @@ Alors il existe $ u \in ]a, b[ $ tel que:
 
 Soient $ m $ et $ M $ le minimum et le maximum de $ f $ sur $ [a, b] $. Comme $ g(x) > 0 $ alors:
 
-\[ \forall x \in [a, b],\ m \leq f(x) \geq M \]
-\[ \Leftrightarrow \forall x \in [a, b],\ m \cdot g(x) \leq f(x) \geq M \cdot g(x) \]
+\[ \forall x \in [a, b],\ m \leq f(x) \leq M \]
+\[ \Leftrightarrow \forall x \in [a, b],\ m \cdot g(x) \leq f(x) \leq M \cdot g(x) \]
 on applique les propriétés de l'intégrale:
 \[ m \cdot \int_{a}^b g(x)dx \leq \int_{a}^b f(x)g(x)dx \leq M \cdot \int_{a}^b g(x)dx \]
 Et il existe donc $ v \in [m, M] $ tel que:
-\[ \int_{a}^b f(x)g(x)dx = v \cdot \int_{a}^b g(x)dx \]
-$ v $ serait donc dans l'image de $ f(x) $. Or, on sait que $ f $ est continue, donc le T.V.I nous permet d'affirmer qu'il existe $ u \in ]a, b[ $ tel que $ v = f(u) $.
+\[ \int_{a}^b f(x)g(x)dx = f(v) \cdot \int_{a}^b g(x)dx \]
+On peut prouver qu'il existe un tel $ v $ car $ f $ est continue, grâce au T.V.I, $ \exists u \in ]a, b[ $ tel que $ v = f(u) $.
 
 \end{document}
